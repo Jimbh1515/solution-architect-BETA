@@ -17,7 +17,7 @@ class FakeModel:
         self.calls = []
         self.bad_first = True
 
-    def generate(self, prompt, json_schema=None, history=None):
+    def generate(self, prompt, json_schema=None, history=None, notify=None):
         self.calls.append(prompt[:40])
         if prompt.startswith("INTAKE"):
             asked = sum(1 for h in history if h["role"] == "model")
@@ -181,7 +181,7 @@ def test_intake_survives_reloads_and_failures(monkeypatch):
     fake.generate = boom
     c.post(f"/intake/{iid}/answer", data={"answer": "400 officers"}, follow_redirects=False)
     r = c.get(f"/intake/{iid}")
-    assert "did not respond" in r.text and "Try again" in r.text and "503 model overloaded" in r.text
+    assert "did not respond" in r.text and "Try again" in r.text
     fake.generate = real
     assert "Question 2?" in c.get(f"/intake/{iid}").text
     assert c.get(f"/intake/{iid}").text.count("400 officers") == 1  # answer recorded once
@@ -194,3 +194,53 @@ def test_intake_survives_reloads_and_failures(monkeypatch):
 
     # expired intake gives a clear message
     assert "expired" in c.get("/intake/doesnotexist").text
+
+
+def test_retries_fallback_and_friendly_errors(monkeypatch):
+    from google.genai import errors
+    monkeypatch.setenv("GEMINI_RETRY_DELAYS", "1,2")
+    busy = lambda: errors.ServerError(503, {"error": {"code": 503, "message": "high demand", "status": "UNAVAILABLE"}})
+    slept, notes, tried = [], [], []
+
+    def flaky(model):                       # main model busy 3 times, backup succeeds
+        tried.append(model)
+        if model == "main":
+            raise busy()
+        return "ok"
+    assert agent.with_retries(flaky, "main", "backup", notes.append, slept.append) == "ok"
+    assert tried == ["main", "main", "main", "backup"] and slept == [1, 2]
+    assert any("backup model" in n for n in notes)
+
+    def always_busy(model): raise busy()
+    try:
+        agent.with_retries(always_busy, "main", "backup", sleep=lambda s: None); raise AssertionError
+    except errors.ServerError as e:
+        assert "overloaded" in agent.friendly_error(e)
+
+    def bad_key(model): raise errors.ClientError(400, {"error": {"code": 400, "message": "API key not valid", "status": "INVALID_ARGUMENT"}})
+    calls = []
+    try:
+        agent.with_retries(lambda m: (calls.append(m), bad_key(m)), "main", "backup", sleep=lambda s: None)
+    except errors.ClientError as e:
+        assert calls == ["main"]            # not retried
+        assert "GEMINI_API_KEY" in agent.friendly_error(e)
+
+
+def test_failed_job_retry_button(monkeypatch):
+    from google.genai import errors
+    monkeypatch.setattr(main, "AUTH_DISABLED", True)
+    fake = FakeModel(); main._model = fake
+    real = fake.generate
+    def busy(*a, **k): raise errors.ServerError(503, {"error": {"code": 503, "message": "high demand", "status": "UNAVAILABLE"}})
+    fake.generate = busy
+    c = TestClient(main.app)
+    r = c.post("/quick", data={"brief": "A GLC wants a data platform for asset inspection records across states."}, follow_redirects=False)
+    jid = r.headers["location"].split("/")[-1]
+    assert wait(c, jid)["status"] == "failed"
+    pg = c.get(f"/jobs/{jid}").text
+    assert "overloaded" in pg and "Try again" in pg and "Technical details" in pg
+    fake.generate = real
+    r = c.post(f"/jobs/{jid}/retry", follow_redirects=False)
+    new = r.headers["location"].split("/")[-1]
+    assert new != jid and wait(c, new)["status"] == "done"
+    assert c.post(f"/jobs/{jid}/retry", follow_redirects=False).headers["location"].endswith(new)   # no duplicate retries

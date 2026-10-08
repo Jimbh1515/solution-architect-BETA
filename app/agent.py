@@ -5,6 +5,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 log = logging.getLogger("agent")
@@ -42,9 +43,19 @@ class Model:
         timeout_ms = int(os.environ.get("GEMINI_TIMEOUT_SECONDS", "600")) * 1000
         self.client = genai.Client(api_key=key, http_options=types.HttpOptions(timeout=timeout_ms))
         self.model = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
+        self.fallback = os.environ.get("GEMINI_FALLBACK_MODEL", "gemini-3.5-flash").strip() or None
         self.sys = system_instruction()
 
-    def generate(self, prompt: str, json_schema: dict | None = None, history: list | None = None) -> str:
+    def _call(self, model: str, contents, cfg):
+        resp = self.client.models.generate_content(model=model, contents=contents,
+                                                   config=self.types.GenerateContentConfig(**cfg))
+        text = resp.text or ""
+        if not text.strip():
+            raise RuntimeError("The model returned an empty response (it may have been blocked or hit a limit).")
+        return text
+
+    def generate(self, prompt: str, json_schema: dict | None = None, history: list | None = None,
+                 notify=lambda m: None) -> str:
         t = self.types
         contents = []
         for turn in history or []:
@@ -55,12 +66,57 @@ class Model:
             cfg["max_output_tokens"] = int(os.environ["GEMINI_MAX_OUTPUT_TOKENS"])
         if json_schema:
             cfg.update(response_mime_type="application/json", response_json_schema=json_schema)
-        resp = self.client.models.generate_content(model=self.model, contents=contents,
-                                                   config=t.GenerateContentConfig(**cfg))
-        text = resp.text or ""
-        if not text.strip():
-            raise RuntimeError("The model returned an empty response (it may have been blocked or hit a limit).")
-        return text
+        return with_retries(lambda m: self._call(m, contents, cfg), self.model, self.fallback, notify)
+
+
+# ------------------------------------------------------------------ retries and friendly errors
+RETRYABLE = {429, 500, 502, 503, 504}
+
+
+def _status(e) -> int | None:
+    code = getattr(e, "code", None)
+    return code if isinstance(code, int) else None
+
+
+def with_retries(call, model: str, fallback: str | None, notify=lambda m: None, sleep=time.sleep):
+    """Try the main model with backoff on busy/overloaded errors, then the fallback model once with backoff."""
+    delays = [int(x) for x in os.environ.get("GEMINI_RETRY_DELAYS", "5,15,30").split(",") if x.strip()]
+    models = [model] + ([fallback] if fallback and fallback != model else [])
+    last = None
+    for mi, m in enumerate(models):
+        if mi:
+            notify(f"Main model still busy; switching to backup model {m}")
+        for attempt in range(len(delays) + 1):
+            try:
+                return call(m)
+            except Exception as e:
+                last = e
+                code = _status(e)
+                if code not in RETRYABLE:
+                    raise
+                if attempt < len(delays):
+                    notify(f"Gemini is busy ({code}); retrying in {delays[attempt]} s")
+                    log.warning("Gemini %s on %s, retry %d in %ss", code, m, attempt + 1, delays[attempt])
+                    sleep(delays[attempt])
+    raise last
+
+
+def friendly_error(e: Exception) -> str:
+    code = _status(e)
+    text = str(e)
+    if code in (500, 502, 503, 504):
+        return ("Google's Gemini service is overloaded right now, even after several retries and the backup model. "
+                "This is on Google's side and usually clears within minutes. Use Try again shortly.")
+    if code == 429:
+        return ("Gemini rate limit or quota reached for this API key. Wait a minute and try again; if it keeps happening, "
+                "check the key's quota and billing in Google AI Studio.")
+    if code in (401, 403) or "API key" in text or "API_KEY" in text:
+        return "Gemini rejected the API key. Check GEMINI_API_KEY in Render → Environment."
+    if code == 404 or "not found" in text.lower() and "model" in text.lower():
+        return "The Gemini model name was not found. Check GEMINI_MODEL in Render → Environment against Google's current model list."
+    if "validation" in text.lower():
+        return "The AI produced an architecture that failed validation even after repairs. Try again, or add more detail to the opportunity."
+    return "Something went wrong while generating the proposal. Try again; if it repeats, share the technical details with the maintainer."
 
 
 # ------------------------------------------------------------------ schemas
@@ -150,7 +206,7 @@ def design(model, brief: str, mode: str, workdir: Path, progress=lambda m: None)
     prompt = (f"DESIGN STEP. Mode: {mode}.\n\nOpportunity information:\n<<<\n{brief}\n>>>\n\n"
               "Return the JSON object described in file 10, step 2.")
     progress("Designing options and the recommended architecture")
-    out = _loads(model.generate(prompt, DESIGN_SCHEMA))
+    out = _loads(model.generate(prompt, DESIGN_SCHEMA, notify=progress))
     for attempt in range(MAX_REPAIRS + 1):
         out["spec"] = _clean_spec(out["spec"])
         err = _validate_spec(out["spec"], workdir)
@@ -161,7 +217,7 @@ def design(model, brief: str, mode: str, workdir: Path, progress=lambda m: None)
         progress(f"Fixing the architecture spec (attempt {attempt + 1})")
         fix = (f"DESIGN STEP (repair). The app rejected your spec:\n{err}\n\nYour previous object:\n"
                f"{json.dumps(out)}\n\nReturn the full corrected JSON object.")
-        out = _loads(model.generate(fix, DESIGN_SCHEMA))
+        out = _loads(model.generate(fix, DESIGN_SCHEMA, notify=progress))
     return out
 
 
@@ -220,7 +276,7 @@ def package(model, brief: str, mode: str, design_out: dict, outdir: Path, progre
               "Write the full package in Markdown now, Sections 0 to 9, with the three placeholders from file 10. "
               "Return Markdown only, no code fences around the whole document.")
     progress("Writing the proposal package")
-    md = model.generate(prompt).strip()
+    md = model.generate(prompt, notify=progress).strip()
     md = re.sub(r"^```(?:markdown|md)?\s*\n|\n```\s*$", "", md)
     inserts = {"{{SPEC_TABLES}}": spec_tables(design_out["spec"]), "{{DIAGRAMS}}": DIAGRAMS_MD,
                "{{SERVICE_MAPPING}}": re.sub(r"^# .*\n+", "", mapping)}

@@ -69,6 +69,8 @@ You need two things: a Gemini API key and a Render account. Allow about 15 minut
 | `AUTH_MODE` | `none` | `none` = open access for internal testing; `github` = GitHub sign-in (see below). |
 | `MAX_JOBS_TOTAL_PER_DAY` | `30` | Proposals the whole app will generate per 24 hours, across all visitors. Protects your Gemini credit while there is no sign-in. |
 | `ALLOWED_GITHUB_USERS` | — | Only with `AUTH_MODE=github`: GitHub usernames allowed in (case doesn't matter). |
+| `GEMINI_FALLBACK_MODEL` | `gemini-3.5-flash` | Backup model used automatically when the main model stays overloaded (503) after retries. Leave empty to disable. |
+| `GEMINI_RETRY_DELAYS` | `5,15,30` | Seconds to wait between retries when Gemini is busy or rate-limited. |
 | `MAX_JOBS_PER_USER_PER_DAY` | `20` | Protects your Gemini credit. |
 | `MAX_CONCURRENT_JOBS` | `2` | Proposals generated at the same time. |
 | `JOB_TTL_HOURS` | `12` | How long results stay available. |

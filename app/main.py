@@ -201,7 +201,7 @@ def _start_job(user: str, brief: str, mode: str) -> str:
             JOBS[jid].update(meta, status="done")
         except Exception as e:  # report every failure to the user, keep details in logs
             log.exception("Job %s failed", jid)
-            JOBS[jid].update(status="failed", error=str(e)[:2000])
+            JOBS[jid].update(status="failed", error=agent.friendly_error(e), detail=str(e)[:2000])
 
     executor.submit(work)
     return jid
@@ -250,7 +250,7 @@ def _advance_intake(it: dict) -> None:
             nxt = agent.intake_next(get_model(), it["history"])
         except Exception as e:
             log.exception("Intake failed")
-            it["error"] = str(e)[:500]
+            it["error"] = agent.friendly_error(e)
             return
         it["error"] = None
         it["pending"] = False
@@ -324,6 +324,19 @@ def job_view(request: Request, jid: str):
     j = own_job(jid, user)
     body = proposal_html(j) if j["status"] == "done" else ""
     return page(request, "job.html", job=j, body=body)
+
+
+@app.post("/jobs/{jid}/retry")
+def job_retry(request: Request, jid: str):
+    user = require_user(request)
+    j = own_job(jid, user)
+    if j["status"] != "failed":
+        return RedirectResponse(f"/jobs/{jid}", 303)
+    if j.get("retried_as"):
+        return RedirectResponse(f"/jobs/{j['retried_as']}", 303)
+    new = _start_job(user, j["brief"], j["mode"])
+    j["retried_as"] = new
+    return RedirectResponse(f"/jobs/{new}", 303)
 
 
 @app.get("/jobs/{jid}/status")

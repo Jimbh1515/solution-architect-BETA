@@ -20,8 +20,12 @@
 {% elif job.status == 'failed' %}
   <section class="card narrow">
     <h1>Generation failed</h1>
-    <pre class="error">{{ job.error }}</pre>
-    <a class="btn" href="/">Start again</a>
+    <p>{{ job.error }}</p>
+    <div class="choices">
+      <form method="post" action="/jobs/{{ job.id }}/retry"><button class="btn primary" type="submit">Try again<small>Same opportunity, no retyping</small></button></form>
+      <a class="btn" href="/">Start a new one</a>
+    </div>
+    {% if job.detail %}<details><summary class="muted">Technical details</summary><pre class="error">{{ job.detail }}</pre></details>{% endif %}
   </section>
 {% else %}
   <div class="toolbar">
