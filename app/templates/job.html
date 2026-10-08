@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}{{ job.title }} · Solutions Architect{% endblock %}
+{% block content %}
+{% if job.status == 'running' %}
+  <section class="card narrow" id="running">
+    <h1>Working on it</h1>
+    <p class="muted">This usually takes one to four minutes. Keep this page open.</p>
+    <ol id="log">{% for l in job.log %}<li>{{ l }}</li>{% endfor %}</ol>
+  </section>
+  <script>
+  (function poll(){
+    fetch(location.pathname + "/status", {credentials: "same-origin"}).then(r => r.json()).then(s => {
+      if (s.status !== "running") { location.reload(); return; }
+      const ol = document.getElementById("log"); ol.innerHTML = "";
+      s.log.forEach(t => { const li = document.createElement("li"); li.textContent = t; ol.appendChild(li); });
+      setTimeout(poll, 4000);
+    }).catch(() => setTimeout(poll, 8000));
+  })();
+  </script>
+{% elif job.status == 'failed' %}
+  <section class="card narrow">
+    <h1>Generation failed</h1>
+    <pre class="error">{{ job.error }}</pre>
+    <a class="btn" href="/">Start again</a>
+  </section>
+{% else %}
+  <div class="toolbar">
+    <h1>{{ job.title }}</h1>
+    <div>
+      <a class="btn primary" href="/jobs/{{ job.id }}/download">Download package (.zip)</a>
+      <a class="btn" href="/jobs/{{ job.id }}/files/diagrams/multicloud.drawio">draw.io file</a>
+    </div>
+  </div>
+  <p class="banner">Draft for pre-sales use. Work through Section 9 (items to verify) before anything leaves the team.</p>
+  <article class="proposal">{{ body | safe }}</article>
+{% endif %}
+{% endblock %}

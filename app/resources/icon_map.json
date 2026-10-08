@@ -1,0 +1,1655 @@
+{
+"_meta":{
+"built":"2026-10-08",
+"drawio_commit":"96f8c7acb719aa93f0108eecedf20c3afdcbe431",
+"diagrams_version":"0.25.1",
+"note":"draw.io styles copied verbatim from draw.io sidebar definitions; Python icons resolved from the diagrams package. Service names marked (v) need verification before use in a proposal."
+},
+"kinds":{
+"users":{
+"description":"People who use the system",
+"aws":{
+"service":"Users",
+"drawio_palette":"Network2",
+"drawio_title":"Users",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.users;network2IconXOffset=0.0019;network2IconYOffset=-0.0004;network2IconW=1.0353;network2IconH=0.6623;",
+"w":51.76500000000001,
+"h":33.115,
+"py_class":"onprem.client.Users",
+"py_icon":"onprem/client/users.png",
+"verify":false
+},
+"azure":{
+"service":"Users",
+"drawio_palette":"Network2",
+"drawio_title":"Users",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.users;network2IconXOffset=0.0019;network2IconYOffset=-0.0004;network2IconW=1.0353;network2IconH=0.6623;",
+"w":51.76500000000001,
+"h":33.115,
+"py_class":"onprem.client.Users",
+"py_icon":"onprem/client/users.png",
+"verify":false
+},
+"gcp":{
+"service":"Users",
+"drawio_palette":"Network2",
+"drawio_title":"Users",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.users;network2IconXOffset=0.0019;network2IconYOffset=-0.0004;network2IconW=1.0353;network2IconH=0.6623;",
+"w":51.76500000000001,
+"h":33.115,
+"py_class":"onprem.client.Users",
+"py_icon":"onprem/client/users.png",
+"verify":false
+},
+"generic":{
+"service":"Users",
+"drawio_palette":"Network2",
+"drawio_title":"Users",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.users;network2IconXOffset=0.0019;network2IconYOffset=-0.0004;network2IconW=1.0353;network2IconH=0.6623;",
+"w":51.76500000000001,
+"h":33.115,
+"py_class":"onprem.client.Users",
+"py_icon":"onprem/client/users.png",
+"verify":false
+}
+},
+"external_source":{
+"description":"Data source outside the client (other agencies, public data, partners)",
+"aws":{
+"service":"External source",
+"drawio_palette":"Network2",
+"drawio_title":"Internet",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.internet;network2IconXOffset=0.0012;network2IconYOffset=0.0035;network2IconW=0.9677;network2IconH=0.7722;",
+"w":48.385,
+"h":38.61,
+"py_class":"onprem.network.Internet",
+"py_icon":"onprem/network/internet.png",
+"verify":false
+},
+"azure":{
+"service":"External source",
+"drawio_palette":"Network2",
+"drawio_title":"Internet",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.internet;network2IconXOffset=0.0012;network2IconYOffset=0.0035;network2IconW=0.9677;network2IconH=0.7722;",
+"w":48.385,
+"h":38.61,
+"py_class":"onprem.network.Internet",
+"py_icon":"onprem/network/internet.png",
+"verify":false
+},
+"gcp":{
+"service":"External source",
+"drawio_palette":"Network2",
+"drawio_title":"Internet",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.internet;network2IconXOffset=0.0012;network2IconYOffset=0.0035;network2IconW=0.9677;network2IconH=0.7722;",
+"w":48.385,
+"h":38.61,
+"py_class":"onprem.network.Internet",
+"py_icon":"onprem/network/internet.png",
+"verify":false
+},
+"generic":{
+"service":"External source",
+"drawio_palette":"Network2",
+"drawio_title":"Internet",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.internet;network2IconXOffset=0.0012;network2IconYOffset=0.0035;network2IconW=0.9677;network2IconH=0.7722;",
+"w":48.385,
+"h":38.61,
+"py_class":"onprem.network.Internet",
+"py_icon":"onprem/network/internet.png",
+"verify":false
+}
+},
+"internal_source":{
+"description":"Existing client system or data store feeding the solution",
+"aws":{
+"service":"Internal source",
+"drawio_palette":"Network2",
+"drawio_title":"Data Storage",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.data_storage;network2IconW=0.8252;network2IconH=0.9989;",
+"w":41.260000000000005,
+"h":49.945,
+"py_class":"generic.storage.Storage",
+"py_icon":"generic/storage/storage.png",
+"verify":false
+},
+"azure":{
+"service":"Internal source",
+"drawio_palette":"Network2",
+"drawio_title":"Data Storage",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.data_storage;network2IconW=0.8252;network2IconH=0.9989;",
+"w":41.260000000000005,
+"h":49.945,
+"py_class":"generic.storage.Storage",
+"py_icon":"generic/storage/storage.png",
+"verify":false
+},
+"gcp":{
+"service":"Internal source",
+"drawio_palette":"Network2",
+"drawio_title":"Data Storage",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.data_storage;network2IconW=0.8252;network2IconH=0.9989;",
+"w":41.260000000000005,
+"h":49.945,
+"py_class":"generic.storage.Storage",
+"py_icon":"generic/storage/storage.png",
+"verify":false
+},
+"generic":{
+"service":"Internal source",
+"drawio_palette":"Network2",
+"drawio_title":"Data Storage",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.data_storage;network2IconW=0.8252;network2IconH=0.9989;",
+"w":41.260000000000005,
+"h":49.945,
+"py_class":"generic.storage.Storage",
+"py_icon":"generic/storage/storage.png",
+"verify":false
+}
+},
+"identity":{
+"description":"Identity provider and single sign-on",
+"aws":{
+"service":"AWS IAM Identity Center / Amazon Cognito",
+"drawio_palette":"AWS4",
+"drawio_title":"IAM Identity Center",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.single_sign_on;",
+"w":78,
+"h":78,
+"py_class":"aws.security.Cognito",
+"py_icon":"aws/security/cognito.png",
+"verify":false
+},
+"azure":{
+"service":"Microsoft Entra ID",
+"drawio_palette":"Azure2",
+"drawio_title":"Entra Identity",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/other/Entra_Identity.svg;",
+"w":68,
+"h":60.440000000000005,
+"py_class":"azure.identity.ActiveDirectory",
+"py_icon":"azure/identity/active-directory.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud Identity / Identity Platform",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Cloud IAM",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjE2LjQyMDAwMDA3NjI5Mzk0NSIgaGVpZ2h0PSIyMC4wNDk5OTkyMzcwNjA1NDciIGZpbGwtcnVsZT0iZXZlbm9kZCIgdmlld0JveD0iMCAwIDE2LjQyMDAwMDA3NjI5Mzk0NSAyMC4wNDk5OTkyMzcwNjA1NDciPiYjeGE7CTxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOwk8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik04LjIxIDBMMCAzLjQydjUuNjNjMCA1LjA2IDMuNSA5LjggOC4yMSAxMSA0LjcxLTEuMTUgOC4yMS01Ljg5IDguMjEtMTAuOTVWMy40MnptMCAzLjc5YTIuNjMgMi42MyAwIDAgMSAxLjAwNSA1LjA2QTIuNjMgMi42MyAwIDAgMSA2LjM1IDQuNTZhMi42MyAyLjYzIDAgMCAxIDEuODYtLjc3em00LjExIDExLjE1YTguNjQgOC42NCAwIDAgMS00LjExIDIuOTMgOC42NCA4LjY0IDAgMCAxLTQuMTEtMi45M3YtMi4yNWMwLTEuNjcgMi43NC0yLjUyIDQuMTEtMi41MnM0LjExLjg1IDQuMTEgMi41MnoiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNOC4yMSAwdjMuNzlhMi42MyAyLjYzIDAgMSAxIDAgNS4yNnYxLjEyYzEuMzcgMCA0LjExLjg1IDQuMTEgMi41MnYyLjI1YTguNjQgOC42NCAwIDAgMS00LjExIDIuOTNWMjBjNC43MS0xLjE1IDguMjEtNS44OSA4LjIxLTEwLjk1VjMuNDJ6Ii8+JiN4YTs8L3N2Zz4=;",
+"w":32,
+"h":40,
+"py_class":"gcp.security.Iam",
+"py_icon":"gcp/security/iam.png",
+"verify":false
+},
+"generic":{
+"service":"Agency identity provider (e.g. Keycloak)",
+"drawio_palette":"Network2",
+"drawio_title":"Lock",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.lock;network2IconW=0.8;network2IconH=0.9999;",
+"w":40,
+"h":49.995,
+"py_class":"onprem.identity.Dex",
+"py_icon":"onprem/identity/dex.png",
+"verify":false
+}
+},
+"api_gateway":{
+"description":"API gateway / API management",
+"aws":{
+"service":"Amazon API Gateway",
+"drawio_palette":"AWS4",
+"drawio_title":"API Gateway",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;",
+"w":78,
+"h":78,
+"py_class":"aws.network.APIGateway",
+"py_icon":"aws/network/api-gateway.png",
+"verify":false
+},
+"azure":{
+"service":"Azure API Management",
+"drawio_palette":"Azure2",
+"drawio_title":"API Management Services",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/app_services/API_Management_Services.svg;",
+"w":65,
+"h":60,
+"py_class":"azure.integration.APIManagement",
+"py_icon":"azure/integration/api-management.png",
+"verify":false
+},
+"gcp":{
+"service":"Apigee",
+"drawio_palette":"GCP3",
+"drawio_title":"Apigee",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.apigee;fillColor=#4285f4",
+"w":50,
+"h":48.74,
+"py_class":"gcp.api.Apigee",
+"py_icon":"gcp/api/apigee.png",
+"verify":false
+},
+"generic":{
+"service":"API gateway (e.g. Kong)",
+"drawio_palette":"Network2",
+"drawio_title":"Hub",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.hub;network2IconXOffset=0.0001;network2IconYOffset=0.0129;network2IconW=1;network2IconH=0.2938;",
+"w":50,
+"h":14.69,
+"py_class":"onprem.network.Kong",
+"py_icon":"onprem/network/kong.png",
+"verify":false
+}
+},
+"waf":{
+"description":"Web application firewall and DDoS protection",
+"aws":{
+"service":"AWS WAF",
+"drawio_palette":"AWS4",
+"drawio_title":"WAF",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.waf;",
+"w":78,
+"h":78,
+"py_class":"aws.security.WAF",
+"py_icon":"aws/security/waf.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Front Door with WAF",
+"drawio_palette":"Azure2",
+"drawio_title":"Front Doors",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/networking/Front_Doors.svg;",
+"w":68,
+"h":60,
+"py_class":"azure.network.FrontDoors",
+"py_icon":"azure/network/front-doors.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud Armor",
+"drawio_palette":"GCPIcons",
+"drawio_title":"CloudArmor",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjE2LjUwMDQzNDg3NTQ4ODI4IiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSItMC4wMDAzNjMwODkyNjA2NDUyMTA3NCAxLjE5MjA5Mjg5NTUwNzgxMjVlLTcgMTYuNTAwNDM0ODc1NDg4MjggMjAiPiYjeGE7CTxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM2NjlkZjY7fSYjeGE7CS5zdDF7ZmlsbDojYWVjYmZhO30mI3hhOwk8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xMC40MiAxMi4wN2wxLjA0IDEuMDUtNS40NSA1LjQ4LTEuMDQtMS4wNXptLS44My00LjE5bDEuMDQgMS4wNS03LjM1IDcuMzktMS4wNC0xLjA1em0tNC4xNi0uODVsMS4wNCAxLjA1LTQuODggNC45LTEuMDQtMS4wNXoiLz4mI3hhOwk8ZyBjbGFzcz0ic3QwIj4mI3hhOwkJPHBhdGggZD0iTTguMjUgMS42MWw2Ljc4IDN2NC41NWE5LjcxIDkuNzEgMCAwIDEtNi43OCA5LjMyIDkuNyA5LjcgMCAwIDEtNi43OC05LjMxVjQuNjNsNi43OC0zbTAtMS42M0wwIDMuNjh2NS40OUExMS4xNyAxMS4xNyAwIDAgMCA4LjEgMjBoLjE1LjE1YTExLjE3IDExLjE3IDAgMCAwIDguMS0xMC43OFYzLjY4eiIvPiYjeGE7CQk8Y2lyY2xlIGN4PSIxMC45NCIgY3k9IjEyLjYyIiByPSIxLjQyIi8+JiN4YTsJCTxjaXJjbGUgY3g9IjEwLjEiIGN5PSI4LjQ1IiByPSIxLjQyIi8+JiN4YTsJCTxjaXJjbGUgY3g9IjUuOTQiIGN5PSI3LjYiIHI9IjEuNDIiLz4mI3hhOwk8L2c+JiN4YTs8L3N2Zz4=;",
+"w":34,
+"h":40,
+"py_class":"gcp.network.Armor",
+"py_icon":"gcp/network/armor.png",
+"verify":false
+},
+"generic":{
+"service":"Web application firewall",
+"drawio_palette":"Network2",
+"drawio_title":"Firewall",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.firewall;network2IconXOffset=0.0001;network2IconYOffset=0.0001;network2IconW=1;network2IconH=0.608;",
+"w":50,
+"h":30.4,
+"py_class":"generic.network.Firewall",
+"py_icon":"generic/network/firewall.png",
+"verify":false
+}
+},
+"load_balancer":{
+"description":"Load balancer",
+"aws":{
+"service":"Elastic Load Balancing",
+"drawio_palette":"AWS4",
+"drawio_title":"Elastic Load Balancing",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elastic_load_balancing;",
+"w":78,
+"h":78,
+"py_class":"aws.network.ElasticLoadBalancing",
+"py_icon":"aws/network/elastic-load-balancing.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Application Gateway",
+"drawio_palette":"Azure2",
+"drawio_title":"Application Gateways",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/networking/Application_Gateways.svg;",
+"w":64,
+"h":64,
+"py_class":"azure.network.ApplicationGateway",
+"py_icon":"azure/network/application-gateway.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud Load Balancing",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Cloud Load Balancing",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiPiYjeGE7CTxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOwkuc3Qye2ZpbGw6I2FlY2JmYTt9JiN4YTsJPC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTYgMTBoMnY0aC0yem0tNyAwaDJ2NEg5em0tNyAwaDJ2NEgyeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik05IDVoMnY0SDl6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTIgOWgxNnYySDJ6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MiIgZD0iTTQgMGgxMnY1SDR6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTEwIDBoNnY1aC02eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xNCAxNGg2djZoLTZ6TTAgMTRoNnY2SDB6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTMgMTRoM3Y2SDN6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MiIgZD0iTTcgMTRoNnY2SDd6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTEwIDE0aDN2NmgtM3ptNyAwaDN2NmgtM3oiLz4mI3hhOzwvc3ZnPg==;",
+"w":40,
+"h":40,
+"py_class":"gcp.network.LoadBalancing",
+"py_icon":"gcp/network/load-balancing.png",
+"verify":false
+},
+"generic":{
+"service":"Load balancer (e.g. HAProxy)",
+"drawio_palette":"Network2",
+"drawio_title":"Load Balancer",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.load_balancer;network2IconW=0.86;network2IconH=0.76;",
+"w":43,
+"h":38,
+"py_class":"onprem.network.Haproxy",
+"py_icon":"onprem/network/haproxy.png",
+"verify":false
+}
+},
+"k8s":{
+"description":"Kubernetes cluster",
+"aws":{
+"service":"Amazon EKS",
+"drawio_palette":"AWS4",
+"drawio_title":"Elastic Kubernetes Service",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks;",
+"w":78,
+"h":78,
+"py_class":"aws.compute.EKS",
+"py_icon":"aws/compute/elastic-kubernetes-service.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Kubernetes Service (AKS)",
+"drawio_palette":"Azure2",
+"drawio_title":"Kubernetes Services",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/compute/Kubernetes_Services.svg;",
+"w":68,
+"h":60,
+"py_class":"azure.compute.KubernetesServices",
+"py_icon":"azure/compute/kubernetes-services.png",
+"verify":false
+},
+"gcp":{
+"service":"Google Kubernetes Engine (GKE)",
+"drawio_palette":"GCP3",
+"drawio_title":"GKE",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.gke;fillColor=#4285f4",
+"w":45.365,
+"h":50,
+"py_class":"gcp.compute.KubernetesEngine",
+"py_icon":"gcp/compute/kubernetes-engine.png",
+"verify":false
+},
+"generic":{
+"service":"Kubernetes (e.g. OpenShift, Rancher)",
+"drawio_palette":"Kubernetes",
+"drawio_title":"Control Plane",
+"drawio_style":"aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;shape=mxgraph.kubernetes.icon2;prIcon=control_plane",
+"w":50,
+"h":48,
+"py_class":"k8s.infra.Master",
+"py_icon":"k8s/infra/master.png",
+"verify":false
+}
+},
+"serverless_container":{
+"description":"Serverless container runtime",
+"aws":{
+"service":"AWS Fargate",
+"drawio_palette":"AWS4",
+"drawio_title":"Fargate",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.fargate;",
+"w":78,
+"h":78,
+"py_class":"aws.compute.Fargate",
+"py_icon":"aws/compute/fargate.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Container Apps",
+"drawio_palette":"Azure2",
+"drawio_title":"Worker Container App",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/other/Worker_Container_App.svg;",
+"w":68,
+"h":66,
+"py_class":"azure.compute.ContainerApps",
+"py_icon":"azure/compute/container-apps.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud Run",
+"drawio_palette":"GCP3",
+"drawio_title":"Cloud Run",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.cloudrun;fillColor=#4285f4",
+"w":50,
+"h":49.745,
+"py_class":"gcp.compute.Run",
+"py_icon":"gcp/compute/run.png",
+"verify":false
+},
+"generic":{
+"service":"Container runtime (e.g. Knative)",
+"drawio_palette":"Network2",
+"drawio_title":"Server",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.server;network2IconW=1.0001;network2IconH=0.5812;",
+"w":50.005,
+"h":29.060000000000002,
+"py_class":"onprem.container.Docker",
+"py_icon":"onprem/container/docker.png",
+"verify":false
+}
+},
+"functions":{
+"description":"Event-driven functions",
+"aws":{
+"service":"AWS Lambda",
+"drawio_palette":"AWS4",
+"drawio_title":"Lambda",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;",
+"w":78,
+"h":78,
+"py_class":"aws.compute.Lambda",
+"py_icon":"aws/compute/lambda.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Functions",
+"drawio_palette":"Azure2",
+"drawio_title":"Function Apps",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/compute/Function_Apps.svg;",
+"w":68,
+"h":60,
+"py_class":"azure.compute.FunctionApps",
+"py_icon":"azure/compute/function-apps.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud Run functions (v)",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Cloud Functions",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE5Ljk4OTk5OTc3MTExODE2NCIgdmlld0JveD0iMCAwIDIwIDE5Ljk4OTk5OTc3MTExODE2NCI+JiN4YTsJPHN0eWxlIHR5cGU9InRleHQvY3NzIj4mI3hhOwkuc3Qwe2ZpbGw6IzQyODVmNDt9JiN4YTsJLnN0MXtmaWxsOiM2NjlkZjY7fSYjeGE7CS5zdDJ7ZmlsbDojYWVjYmZhO30mI3hhOwk8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zIDMuOTlMMCA2LjQydjcuMTNsMyAyLjQ0eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zIDMuOTlsLTMgNCAzLTJ6bS0zIDhsMyA0di0yeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0wIDE1Ljk5bDQgNCAyLTItNi02em0uMDEtOEw1Ljk5IDJsLTItMkwwIDMuOTl6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTE3IDE2bDMtMi40MlY2LjQ0TDE3IDR6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE3IDE2bDMtNC0zIDJ6bTMtOGwtMy00djJ6Ii8+JiN4YTsJPGcgY2xhc3M9InN0MiI+JiN4YTsJCTxwYXRoIGQ9Ik0yMCA0bC00LTQtMiAyIDYgNnptLS4wMSA4bC01Ljk4IDUuOTkgMiAyTDIwIDE2eiIvPiYjeGE7CQk8Y2lyY2xlIGN4PSI2IiBjeT0iOS45OSIgcj0iMSIvPiYjeGE7CQk8Y2lyY2xlIGN4PSIxMCIgY3k9IjkuOTkiIHI9IjEiLz4mI3hhOwkJPGNpcmNsZSBjeD0iMTMuOTkiIGN5PSI5Ljk5IiByPSIxIi8+JiN4YTsJPC9nPiYjeGE7PC9zdmc+;",
+"w":20,
+"h":20,
+"py_class":"gcp.compute.Functions",
+"py_icon":"gcp/compute/functions.png",
+"verify":true
+},
+"generic":{
+"service":"Functions runtime (e.g. OpenFaaS)",
+"drawio_palette":"Network2",
+"drawio_title":"Server",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.server;network2IconW=1.0001;network2IconH=0.5812;",
+"w":50.005,
+"h":29.060000000000002,
+"py_class":"onprem.container.Docker",
+"py_icon":"onprem/container/docker.png",
+"verify":false
+}
+},
+"vm":{
+"description":"Virtual machines",
+"aws":{
+"service":"Amazon EC2",
+"drawio_palette":"AWS4",
+"drawio_title":"EC2",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ec2;",
+"w":78,
+"h":78,
+"py_class":"aws.compute.EC2",
+"py_icon":"aws/compute/ec2.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Virtual Machines",
+"drawio_palette":"Azure2",
+"drawio_title":"Virtual Machine",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/compute/Virtual_Machine.svg;",
+"w":69,
+"h":64,
+"py_class":"azure.compute.VM",
+"py_icon":"azure/compute/vm.png",
+"verify":false
+},
+"gcp":{
+"service":"Compute Engine",
+"drawio_palette":"GCP3",
+"drawio_title":"Compute Engine",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.computeengine;fillColor=#4285f4",
+"w":50,
+"h":50,
+"py_class":"gcp.compute.ComputeEngine",
+"py_icon":"gcp/compute/compute-engine.png",
+"verify":false
+},
+"generic":{
+"service":"Virtual machines (e.g. VMware, KVM)",
+"drawio_palette":"Network2",
+"drawio_title":"Server",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.server;network2IconW=1.0001;network2IconH=0.5812;",
+"w":50.005,
+"h":29.060000000000002,
+"py_class":"onprem.compute.Server",
+"py_icon":"onprem/compute/server.png",
+"verify":false
+}
+},
+"workload":{
+"description":"Application component running on a platform (front end, API, agent service)",
+"aws":{
+"service":"Containerised service",
+"drawio_palette":"Kubernetes",
+"drawio_title":"Pod",
+"drawio_style":"aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;shape=mxgraph.kubernetes.icon2;prIcon=pod",
+"w":50,
+"h":48,
+"py_class":"k8s.compute.Pod",
+"py_icon":"k8s/compute/pod.png",
+"verify":false
+},
+"azure":{
+"service":"Containerised service",
+"drawio_palette":"Kubernetes",
+"drawio_title":"Pod",
+"drawio_style":"aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;shape=mxgraph.kubernetes.icon2;prIcon=pod",
+"w":50,
+"h":48,
+"py_class":"k8s.compute.Pod",
+"py_icon":"k8s/compute/pod.png",
+"verify":false
+},
+"gcp":{
+"service":"Containerised service",
+"drawio_palette":"Kubernetes",
+"drawio_title":"Pod",
+"drawio_style":"aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;shape=mxgraph.kubernetes.icon2;prIcon=pod",
+"w":50,
+"h":48,
+"py_class":"k8s.compute.Pod",
+"py_icon":"k8s/compute/pod.png",
+"verify":false
+},
+"generic":{
+"service":"Containerised service",
+"drawio_palette":"Kubernetes",
+"drawio_title":"Pod",
+"drawio_style":"aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;shape=mxgraph.kubernetes.icon2;prIcon=pod",
+"w":50,
+"h":48,
+"py_class":"k8s.compute.Pod",
+"py_icon":"k8s/compute/pod.png",
+"verify":false
+}
+},
+"managed_llm":{
+"description":"Managed foundation model service",
+"aws":{
+"service":"Amazon Bedrock",
+"drawio_palette":"AWS4",
+"drawio_title":"Bedrock",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#01A88D;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.bedrock;",
+"w":78,
+"h":78,
+"py_class":"aws.ml.Bedrock",
+"py_icon":"aws/ml/bedrock.png",
+"verify":false
+},
+"azure":{
+"service":"Azure OpenAI in Azure AI Foundry (v)",
+"drawio_palette":"Azure2",
+"drawio_title":"OpenAI",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/ai_machine_learning/Azure_OpenAI.svg;",
+"w":68,
+"h":68,
+"py_class":"azure.ml.AzureOpenAI",
+"py_icon":"azure/ml/azure-open-ai.png",
+"verify":true
+},
+"gcp":{
+"service":"Gemini via Vertex AI",
+"drawio_palette":"GCP3",
+"drawio_title":"Vertex AI",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.vertexai;fillColor=#4285f4",
+"w":50,
+"h":49.45,
+"py_class":"gcp.ml.VertexAI",
+"py_icon":"gcp/ml/vertex-ai.png",
+"verify":false
+},
+"generic":{
+"service":"Self-hosted open-weight model",
+"drawio_palette":"Network2",
+"drawio_title":"Server",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.server;network2IconW=1.0001;network2IconH=0.5812;",
+"w":50.005,
+"h":29.060000000000002,
+"py_class":"onprem.compute.Server",
+"py_icon":"onprem/compute/server.png",
+"verify":false
+}
+},
+"ml_platform":{
+"description":"Machine learning platform",
+"aws":{
+"service":"Amazon SageMaker AI",
+"drawio_palette":"AWS4",
+"drawio_title":"SageMaker AI",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#01A88D;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sagemaker;",
+"w":78,
+"h":78,
+"py_class":"aws.ml.Sagemaker",
+"py_icon":"aws/ml/sagemaker.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Machine Learning",
+"drawio_palette":"Azure2",
+"drawio_title":"Azure Machine Learning",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/ai_machine_learning/Azure_Machine_Learning.svg;",
+"w":68,
+"h":59.08,
+"py_class":"azure.ml.MachineLearningServiceWorkspaces",
+"py_icon":"azure/ml/machine-learning-service-workspaces.png",
+"verify":false
+},
+"gcp":{
+"service":"Vertex AI",
+"drawio_palette":"GCP3",
+"drawio_title":"Vertex AI",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.vertexai;fillColor=#4285f4",
+"w":50,
+"h":49.45,
+"py_class":"gcp.ml.VertexAI",
+"py_icon":"gcp/ml/vertex-ai.png",
+"verify":false
+},
+"generic":{
+"service":"ML platform (e.g. MLflow, Kubeflow)",
+"drawio_palette":"Network2",
+"drawio_title":"Global Server",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.global_server;network2IconW=1;network2IconH=1;",
+"w":50,
+"h":50,
+"py_class":"onprem.mlops.Mlflow",
+"py_icon":"onprem/mlops/mlflow.png",
+"verify":false
+}
+},
+"model_serving":{
+"description":"Self-managed model inference server",
+"aws":{
+"service":"Model serving on Amazon EKS / SageMaker endpoints",
+"drawio_palette":"AWS4",
+"drawio_title":"SageMaker AI",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#01A88D;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sagemaker;",
+"w":78,
+"h":78,
+"py_class":"aws.ml.SagemakerModel",
+"py_icon":"aws/ml/sagemaker-model.png",
+"verify":false
+},
+"azure":{
+"service":"Model serving on AKS / Azure ML endpoints",
+"drawio_palette":"Azure2",
+"drawio_title":"Azure Machine Learning",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/ai_machine_learning/Azure_Machine_Learning.svg;",
+"w":68,
+"h":59.08,
+"py_class":"azure.ml.MachineLearningServiceWorkspaces",
+"py_icon":"azure/ml/machine-learning-service-workspaces.png",
+"verify":false
+},
+"gcp":{
+"service":"Model serving on GKE / Vertex AI endpoints",
+"drawio_palette":"GCP3",
+"drawio_title":"Vertex AI",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.vertexai;fillColor=#4285f4",
+"w":50,
+"h":49.45,
+"py_class":"gcp.ml.AIPlatform",
+"py_icon":"gcp/ml/ai-platform.png",
+"verify":false
+},
+"generic":{
+"service":"Inference server (e.g. vLLM, Hugging Face TGI)",
+"drawio_palette":"Network2",
+"drawio_title":"Server",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.server;network2IconW=1.0001;network2IconH=0.5812;",
+"w":50.005,
+"h":29.060000000000002,
+"py_class":"onprem.compute.Server",
+"py_icon":"onprem/compute/server.png",
+"verify":false
+}
+},
+"responsible_ai":{
+"description":"Prompt and response screening / content safety",
+"aws":{
+"service":"Amazon Bedrock Guardrails",
+"drawio_palette":"AWS4",
+"drawio_title":"Bedrock",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#01A88D;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.bedrock;",
+"w":78,
+"h":78,
+"py_class":"aws.ml.Bedrock",
+"py_icon":"aws/ml/bedrock.png",
+"verify":false
+},
+"azure":{
+"service":"Azure AI Content Safety",
+"drawio_palette":"Azure2",
+"drawio_title":"Content Safety",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/ai_machine_learning/Content_Safety.svg;",
+"w":68,
+"h":68,
+"py_class":"azure.ml.CognitiveServices",
+"py_icon":"azure/ml/cognitive-services.png",
+"verify":false
+},
+"gcp":{
+"service":"Model Armor (v)",
+"drawio_palette":"GCP3",
+"drawio_title":"Vertex AI",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.vertexai;fillColor=#4285f4",
+"w":50,
+"h":49.45,
+"py_class":"gcp.ml.VertexAI",
+"py_icon":"gcp/ml/vertex-ai.png",
+"verify":true
+},
+"generic":{
+"service":"Responsible AI service (e.g. guardrail models)",
+"drawio_palette":"Network2",
+"drawio_title":"Network Security",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.network_security;network2IconW=1;network2IconH=0.86;",
+"w":50,
+"h":43,
+"py_class":"generic.network.Firewall",
+"py_icon":"generic/network/firewall.png",
+"verify":false
+}
+},
+"batch_job":{
+"description":"Batch or data-processing job (e.g. embedding generation)",
+"aws":{
+"service":"AWS Batch",
+"drawio_palette":"AWS4",
+"drawio_title":"Batch",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.batch;",
+"w":78,
+"h":78,
+"py_class":"aws.compute.Batch",
+"py_icon":"aws/compute/batch.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Batch",
+"drawio_palette":"Azure2",
+"drawio_title":"Batch Accounts",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/compute/Batch_Accounts.svg;",
+"w":68,
+"h":64,
+"py_class":"azure.compute.BatchAccounts",
+"py_icon":"azure/compute/batch-accounts.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud Run jobs / Batch (v)",
+"drawio_palette":"GCP3",
+"drawio_title":"Cloud Run",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.cloudrun;fillColor=#4285f4",
+"w":50,
+"h":49.745,
+"py_class":"gcp.compute.Run",
+"py_icon":"gcp/compute/run.png",
+"verify":true
+},
+"generic":{
+"service":"Batch job (e.g. Ray)",
+"drawio_palette":"Kubernetes",
+"drawio_title":"Job",
+"drawio_style":"aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;shape=mxgraph.kubernetes.icon2;prIcon=job",
+"w":50,
+"h":48,
+"py_class":"k8s.compute.Job",
+"py_icon":"k8s/compute/job.png",
+"verify":false
+}
+},
+"object_storage":{
+"description":"Object storage / data lake",
+"aws":{
+"service":"Amazon S3",
+"drawio_palette":"AWS4",
+"drawio_title":"Simple Storage Service (S3)",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;",
+"w":78,
+"h":78,
+"py_class":"aws.storage.S3",
+"py_icon":"aws/storage/simple-storage-service-s3.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Blob Storage",
+"drawio_palette":"Azure2",
+"drawio_title":"Storage Accounts",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/storage/Storage_Accounts.svg;",
+"w":65,
+"h":52,
+"py_class":"azure.storage.BlobStorage",
+"py_icon":"azure/storage/blob-storage.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud Storage",
+"drawio_palette":"GCP3",
+"drawio_title":"Cloud Storage",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.cloud_storage;fillColor=#4285f4",
+"w":49.915,
+"h":50,
+"py_class":"gcp.storage.GCS",
+"py_icon":"gcp/storage/storage.png",
+"verify":false
+},
+"generic":{
+"service":"Object storage (e.g. MinIO, Ceph)",
+"drawio_palette":"Network2",
+"drawio_title":"NAS Filer",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.nas_filer;network2IconW=1;network2IconH=0.62;",
+"w":50,
+"h":31,
+"py_class":"onprem.storage.Ceph",
+"py_icon":"onprem/storage/ceph.png",
+"verify":false
+}
+},
+"file_storage":{
+"description":"Shared file storage",
+"aws":{
+"service":"Amazon EFS",
+"drawio_palette":"AWS4",
+"drawio_title":"Elastic File System",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elastic_file_system;",
+"w":78,
+"h":78,
+"py_class":"aws.storage.ElasticFileSystemEFS",
+"py_icon":"aws/storage/elastic-file-system-efs.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Files",
+"drawio_palette":"Azure2",
+"drawio_title":"Managed File Shares",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/other/Managed_File_Shares.svg;",
+"w":68,
+"h":68,
+"py_class":"azure.storage.StorageAccounts",
+"py_icon":"azure/storage/storage-accounts.png",
+"verify":false
+},
+"gcp":{
+"service":"Filestore",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Filestore",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMjAgMTYiPiYjeGE7CTxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOwkuc3Qye2ZpbGw6I2FlY2JmYTt9JiN4YTsJPC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTIgMTBIOEw2IDhoOHoiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTYgMkg0bDEtMmgxMHptMyAzSDFsMS0yaDE2eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xNCA3bC0yIDNIOEw2IDdIMHY5aDIwVjd6Ii8+JiN4YTs8L3N2Zz4=;",
+"w":40,
+"h":32,
+"py_class":"gcp.storage.Filestore",
+"py_icon":"gcp/storage/filestore.png",
+"verify":false
+},
+"generic":{
+"service":"NFS storage",
+"drawio_palette":"Network2",
+"drawio_title":"NAS Filer",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.nas_filer;network2IconW=1;network2IconH=0.62;",
+"w":50,
+"h":31,
+"py_class":"onprem.storage.Ceph",
+"py_icon":"onprem/storage/ceph.png",
+"verify":false
+}
+},
+"relational_db":{
+"description":"Relational database",
+"aws":{
+"service":"Amazon RDS / Aurora",
+"drawio_palette":"AWS4",
+"drawio_title":"RDS",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.rds;",
+"w":78,
+"h":78,
+"py_class":"aws.database.RDS",
+"py_icon":"aws/database/rds.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Database for PostgreSQL",
+"drawio_palette":"Azure2",
+"drawio_title":"Database PostgreSQL Server",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server.svg;",
+"w":48,
+"h":64,
+"py_class":"azure.database.DatabaseForPostgresqlServers",
+"py_icon":"azure/database/database-for-postgresql-servers.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud SQL",
+"drawio_palette":"GCP3",
+"drawio_title":"Cloud SQL",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.cloudsql;fillColor=#4285f4",
+"w":50,
+"h":49.56,
+"py_class":"gcp.database.SQL",
+"py_icon":"gcp/database/sql.png",
+"verify":false
+},
+"generic":{
+"service":"PostgreSQL",
+"drawio_palette":"Network2",
+"drawio_title":"Data Storage",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.data_storage;network2IconW=0.8252;network2IconH=0.9989;",
+"w":41.260000000000005,
+"h":49.945,
+"py_class":"onprem.database.Postgresql",
+"py_icon":"onprem/database/postgresql.png",
+"verify":false
+}
+},
+"vector_db":{
+"description":"Vector store for embeddings",
+"aws":{
+"service":"Aurora PostgreSQL with pgvector",
+"drawio_palette":"AWS4",
+"drawio_title":"Aurora",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.aurora;",
+"w":78,
+"h":78,
+"py_class":"aws.database.Aurora",
+"py_icon":"aws/database/aurora.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Database for PostgreSQL with pgvector",
+"drawio_palette":"Azure2",
+"drawio_title":"Database PostgreSQL Server",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server.svg;",
+"w":48,
+"h":64,
+"py_class":"azure.database.DatabaseForPostgresqlServers",
+"py_icon":"azure/database/database-for-postgresql-servers.png",
+"verify":false
+},
+"gcp":{
+"service":"AlloyDB with pgvector",
+"drawio_palette":"GCP3",
+"drawio_title":"AlloyDB",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.alloydb;fillColor=#4285f4",
+"w":49.915,
+"h":50,
+"py_class":"gcp.database.SQL",
+"py_icon":"gcp/database/sql.png",
+"verify":false
+},
+"generic":{
+"service":"PostgreSQL with pgvector",
+"drawio_palette":"Network2",
+"drawio_title":"Data Storage",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.data_storage;network2IconW=0.8252;network2IconH=0.9989;",
+"w":41.260000000000005,
+"h":49.945,
+"py_class":"onprem.database.Postgresql",
+"py_icon":"onprem/database/postgresql.png",
+"verify":false
+}
+},
+"nosql_db":{
+"description":"NoSQL / document database",
+"aws":{
+"service":"Amazon DynamoDB",
+"drawio_palette":"AWS4",
+"drawio_title":"DynamoDB",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;",
+"w":78,
+"h":78,
+"py_class":"aws.database.Dynamodb",
+"py_icon":"aws/database/dynamodb.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Cosmos DB",
+"drawio_palette":"Azure2",
+"drawio_title":"Cosmos DB",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Cosmos_DB.svg;",
+"w":64,
+"h":64,
+"py_class":"azure.database.CosmosDb",
+"py_icon":"azure/database/cosmos-db.png",
+"verify":false
+},
+"gcp":{
+"service":"Firestore",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Firestore",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjMyMy45MDU2MTAzOTg2NzUxNSIgaGVpZ2h0PSIzNzYuNDIyMjk0OTYzNjg0MDciIHZpZXdCb3g9Ii0wLjA5NzAwMDAwMjg2MTAyMjk1IDAuMjg3OTk5OTg3NjAyMjMzOSA4NS42OTk5OTY5NDgyNDIxOSA5OS41OTUwMDEyMjA3MDMxMiI+JiN4YTs8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojYWVjYmZhO30mI3hhOwkuc3Qxe2ZpbGw6IzY2OWRmNjt9JiN4YTsJLnN0MntmaWxsOiM0Mjg1ZjQ7fSYjeGE7PC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNLS4wOTcgNzUuODE1VjU1Ljg3NGw0Mi44NS0yMC4xODN2MTkuMDd6bTAtMzUuNDAzVjIwLjQ3MUw0Mi43NTMuMjg4djE5LjA3eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik04NS42MDMgNzUuODE1VjU1Ljg3NGwtNDIuODUtMjAuMTgzdjE5LjA3em0wLTM1LjQwM1YyMC40NzFMNDIuNzUzLjI4OHYxOS4wN3oiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNDIuNzUzIDgwLjMxNGwxNi4yMTctNy41MjUgMjEuMDg0IDkuNzE3LTM3LjMwMSAxNy4zNzd6Ii8+JiN4YTs8L3N2Zz4=;",
+"w":34,
+"h":40,
+"py_class":"gcp.database.Firestore",
+"py_icon":"gcp/database/firestore.png",
+"verify":false
+},
+"generic":{
+"service":"Document database (e.g. MongoDB)",
+"drawio_palette":"Network2",
+"drawio_title":"Data Storage",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.data_storage;network2IconW=0.8252;network2IconH=0.9989;",
+"w":41.260000000000005,
+"h":49.945,
+"py_class":"onprem.database.Mongodb",
+"py_icon":"onprem/database/mongodb.png",
+"verify":false
+}
+},
+"cache":{
+"description":"In-memory cache",
+"aws":{
+"service":"Amazon ElastiCache",
+"drawio_palette":"AWS4",
+"drawio_title":"ElastiCache",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#C925D1;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elasticache;",
+"w":78,
+"h":78,
+"py_class":"aws.database.ElastiCache",
+"py_icon":"aws/database/elasticache.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Managed Redis (v)",
+"drawio_palette":"Azure2",
+"drawio_title":"Azure Managed Redis",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Managed_Redis.svg;",
+"w":68,
+"h":68,
+"py_class":"azure.database.CacheForRedis",
+"py_icon":"azure/database/cache-for-redis.png",
+"verify":true
+},
+"gcp":{
+"service":"Memorystore",
+"drawio_palette":"GCPIcons",
+"drawio_title":"MemoryStore",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiPiYjeGE7CTxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOwkuc3Qye2ZpbGw6I2FlY2JmYTt9JiN4YTsJPC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMCAxLjk0aDMuMzN2Mi41OEgwem0wIDQuNTFoMy4zM3YyLjU4SDB6bTAgNC41MmgzLjMzdjIuNThIMHptMCA0LjUxaDMuMzN2Mi41OEgwek0xNi42NyAxLjk0SDIwdjIuNThoLTMuMzN6bTAgNC41MUgyMHYyLjU4aC0zLjMzem0wIDQuNTJIMjB2Mi41OGgtMy4zM3ptMCA0LjUxSDIwdjIuNThoLTMuMzN6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE2LjY3IDEuOTRsMi42NiAyLjU4aC0yLjY2em0wIDQuNTFsMi42NiAyLjU4aC0yLjY2em0wIDQuNTJsMi42NiAyLjU4aC0yLjY2em0wIDQuNTFsMi42NiAyLjU5aC0yLjY2eiIgZmlsbC1ydWxlPSJldmVub2RkIi8+JiN4YTsJPHBhdGggY2xhc3M9InN0MiIgZD0iTTMuMzMgMjBoMTMuMzRWMEgzLjMzem02LTlINmw0LjY3LTcuNzRWOUgxNGwtNC42NyA3Ljc0eiIgZmlsbC1ydWxlPSJldmVub2RkIi8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTE0IDkuMDNoLTMuMzNWMGg2djIwSDkuMzN2LTMuMjN6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4mI3hhOzwvc3ZnPg==;",
+"w":40,
+"h":40,
+"py_class":"gcp.database.Memorystore",
+"py_icon":"gcp/database/memorystore.png",
+"verify":false
+},
+"generic":{
+"service":"Cache (e.g. Redis, Valkey)",
+"drawio_palette":"Network2",
+"drawio_title":"Data Storage",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.data_storage;network2IconW=0.8252;network2IconH=0.9989;",
+"w":41.260000000000005,
+"h":49.945,
+"py_class":"onprem.inmemory.Redis",
+"py_icon":"onprem/inmemory/redis.png",
+"verify":false
+}
+},
+"search":{
+"description":"Search / retrieval service",
+"aws":{
+"service":"Amazon OpenSearch Service",
+"drawio_palette":"AWS4",
+"drawio_title":"OpenSearch Service",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.elasticsearch_service;",
+"w":78,
+"h":78,
+"py_class":"aws.analytics.AmazonOpensearchService",
+"py_icon":"aws/analytics/amazon-opensearch-service.png",
+"verify":false
+},
+"azure":{
+"service":"Azure AI Search",
+"drawio_palette":"Azure2",
+"drawio_title":"Cognitive Search",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/app_services/Search_Services.svg;",
+"w":68,
+"h":49.120000000000005,
+"py_class":"azure.web.Search",
+"py_icon":"azure/web/search.png",
+"verify":false
+},
+"gcp":{
+"service":"Vertex AI Search",
+"drawio_palette":"GCP3",
+"drawio_title":"Vertex AI",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.vertexai;fillColor=#4285f4",
+"w":50,
+"h":49.45,
+"py_class":"gcp.ml.VertexAI",
+"py_icon":"gcp/ml/vertex-ai.png",
+"verify":false
+},
+"generic":{
+"service":"Search engine (e.g. OpenSearch)",
+"drawio_palette":"Network2",
+"drawio_title":"Global Server",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.global_server;network2IconW=1;network2IconH=1;",
+"w":50,
+"h":50,
+"py_class":"elastic.elasticsearch.Elasticsearch",
+"py_icon":"elastic/elasticsearch/elasticsearch.png",
+"verify":false
+}
+},
+"data_warehouse":{
+"description":"Data warehouse / lakehouse",
+"aws":{
+"service":"Amazon Redshift",
+"drawio_palette":"AWS4",
+"drawio_title":"Redshift",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.redshift;",
+"w":78,
+"h":78,
+"py_class":"aws.analytics.Redshift",
+"py_icon":"aws/analytics/redshift.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Synapse Analytics / Microsoft Fabric (v)",
+"drawio_palette":"Azure2",
+"drawio_title":"Synapse Analytics",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/analytics/Azure_Synapse_Analytics.svg;",
+"w":60,
+"h":69,
+"py_class":"azure.analytics.SynapseAnalytics",
+"py_icon":"azure/analytics/synapse-analytics.png",
+"verify":true
+},
+"gcp":{
+"service":"BigQuery",
+"drawio_palette":"GCP3",
+"drawio_title":"BigQuery",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.bigquery;fillColor=#4285f4",
+"w":50,
+"h":49.84,
+"py_class":"gcp.analytics.Bigquery",
+"py_icon":"gcp/analytics/bigquery.png",
+"verify":false
+},
+"generic":{
+"service":"Lakehouse (e.g. Trino with Iceberg)",
+"drawio_palette":"Network2",
+"drawio_title":"Big Data",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.big_data;network2IconXOffset=-0.0002;network2IconYOffset=0.0015;network2IconW=1;network2IconH= 0.996;",
+"w":50,
+"h":49.8,
+"py_class":"onprem.analytics.Trino",
+"py_icon":"onprem/analytics/trino.png",
+"verify":false
+}
+},
+"streaming":{
+"description":"Event streaming / messaging",
+"aws":{
+"service":"Amazon Kinesis / MSK",
+"drawio_palette":"AWS4",
+"drawio_title":"Kinesis",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.kinesis;",
+"w":78,
+"h":78,
+"py_class":"aws.analytics.Kinesis",
+"py_icon":"aws/analytics/kinesis.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Event Hubs",
+"drawio_palette":"Azure2",
+"drawio_title":"Event Hubs",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/analytics/Event_Hubs.svg;",
+"w":67,
+"h":60,
+"py_class":"azure.analytics.EventHubs",
+"py_icon":"azure/analytics/event-hubs.png",
+"verify":false
+},
+"gcp":{
+"service":"Pub/Sub",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Pub Sub",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjE4LjMxOTk5OTY5NDgyNDIyIiBoZWlnaHQ9IjIwLjAwMDAwMTkwNzM0ODYzMyIgdmlld0JveD0iMCAwIDE4LjMxOTk5OTY5NDgyNDIyIDIwLjAwMDAwMTkwNzM0ODYzMyI+JiN4YTsJPHN0eWxlIHR5cGU9InRleHQvY3NzIj4mI3hhOwkuc3Qwe2ZpbGw6IzY2OWRmNjt9JiN4YTsJLnN0MXtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CS5zdDJ7ZmlsbDojYWVjYmZhO30mI3hhOwk8L3N0eWxlPiYjeGE7CTxkZWZzPiYjeGE7CQk8ZmlsdGVyIGlkPSJBIiB4PSI0LjY0IiB5PSI0LjE5IiB3aWR0aD0iMTQuNzMiIGhlaWdodD0iMTIuNzYiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4mI3hhOwkJCTxmZUZsb29kIGZsb29kLWNvbG9yPSIjZmZmIi8+JiN4YTsJCQk8ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIvPiYjeGE7CQk8L2ZpbHRlcj4mI3hhOwkJPG1hc2sgaWQ9IkIiIHg9IjQuNjQiIHk9IjQuMTkiIHdpZHRoPSIxNC43MyIgaGVpZ2h0PSIxMi43NiIgbWFza1VuaXRzPSJ1c2VyU3BhY2VPblVzZSI+JiN4YTsJCQk8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyLjIzIiByPSIzLjU4IiBmaWx0ZXI9InVybCgjQSkiLz4mI3hhOwkJPC9tYXNrPiYjeGE7CTwvZGVmcz4mI3hhOwk8ZyBjbGFzcz0ic3QwIj4mI3hhOwkJPGNpcmNsZSBjeD0iMTYuMTMiIGN5PSI2LjIxIiByPSIxLjcyIi8+JiN4YTsJCTxjaXJjbGUgY3g9IjIuMTkiIGN5PSI2LjIxIiByPSIxLjcyIi8+JiN4YTsJCTxjaXJjbGUgY3g9IjkuMTYiIGN5PSIxOC4yOCIgcj0iMS43MiIvPiYjeGE7CTwvZz4mI3hhOwk8ZyBtYXNrPSJ1cmwoI0IpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMi44NCAtMikiPiYjeGE7CQk8cGF0aCB0cmFuc2Zvcm09Im1hdHJpeCguNSAtLjg3IC44NyAuNSAtNC41OSAyMC41MykiIGQ9Ik0xNC42OSAxMC4yMmgxLjU5djguMDRoLTEuNTl6IiBjbGFzcz0ic3QxIi8+JiN4YTsJCTxwYXRoIHRyYW5zZm9ybT0icm90YXRlKDMzMCA4LjUyMyAxNC4yNDQpIiBkPSJNNC40OSAxMy40NWg4LjA0djEuNTlINC40OXoiIGNsYXNzPSJzdDEiLz4mI3hhOwkJPHBhdGggZD0iTTExLjIgNC4xOWgxLjU5djguMDRIMTEuMnoiIGNsYXNzPSJzdDEiLz4mI3hhOwk8L2c+JiN4YTsJPGcgY2xhc3M9InN0MiI+JiN4YTsJCTxjaXJjbGUgY3g9IjkuMTYiIGN5PSIxMC4yMyIgcj0iMi43OCIvPiYjeGE7CQk8Y2lyY2xlIGN4PSIyLjE5IiBjeT0iMTQuMjUiIHI9IjIuMTkiLz4mI3hhOwkJPGNpcmNsZSBjeD0iMTYuMTMiIGN5PSIxNC4yNSIgcj0iMi4xOSIvPiYjeGE7CQk8Y2lyY2xlIGN4PSI5LjE2IiBjeT0iMi4xOSIgcj0iMi4xOSIvPiYjeGE7CTwvZz4mI3hhOzwvc3ZnPg==;",
+"w":36,
+"h":40,
+"py_class":"gcp.analytics.Pubsub",
+"py_icon":"gcp/analytics/pubsub.png",
+"verify":false
+},
+"generic":{
+"service":"Event streaming (e.g. Kafka)",
+"drawio_palette":"Network2",
+"drawio_title":"Data Management",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.data_management;network2IconW=0.8252;network2IconH=0.9989;",
+"w":41.260000000000005,
+"h":49.945,
+"py_class":"onprem.queue.Kafka",
+"py_icon":"onprem/queue/kafka.png",
+"verify":false
+}
+},
+"etl":{
+"description":"Data integration / pipelines",
+"aws":{
+"service":"AWS Glue",
+"drawio_palette":"AWS4",
+"drawio_title":"Glue",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.glue;",
+"w":78,
+"h":78,
+"py_class":"aws.analytics.Glue",
+"py_icon":"aws/analytics/glue.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Data Factory",
+"drawio_palette":"Azure2",
+"drawio_title":"Data Factories",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/databases/Data_Factory.svg;",
+"w":68,
+"h":68,
+"py_class":"azure.analytics.DataFactories",
+"py_icon":"azure/analytics/data-factories.png",
+"verify":false
+},
+"gcp":{
+"service":"Dataflow",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Dataflow",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjE0LjUxOTk5OTUwNDA4OTM1NSIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDE0LjUxOTk5OTUwNDA4OTM1NSAyMCI+JiN4YTsJPHN0eWxlIHR5cGU9InRleHQvY3NzIj4mI3hhOwkuc3Qwe2ZpbGwtcnVsZTpldmVub2RkfSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOwkuc3Qye2ZpbGw6I2FlY2JmYTt9JiN4YTsJLnN0M3tmaWxsOiM0Mjg1ZjQ7fSYjeGE7CTwvc3R5bGU+JiN4YTsJPGcgY2xhc3M9InN0MCI+JiN4YTsJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik03LjM3IDIuMDNsLTEuNzIuOTYgMS41MiAxLjUtLjAyIDEuNzMgMS4wMi4wMS4wMi0xLjczIDQuMjQgMi41Ni0uMDEgMS4wNyAxLjc3LjAzVjYuMTFMOS4wNSAzLjA0bC0uMjctLjk0eiIvPiYjeGE7CQk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNy4zNiAyLjAzbC0xLjQyLjM1LS4yOS42MUwuMzkgNS45Mi4zNiA3Ljk3IDIuMTQgOGwuMDItMS4wNyA0LjMxLTIuNDUtLjAyIDEuNzMuODYuMDEuMDYtNC4xOXoiLz4mI3hhOwkJPGcgY2xhc3M9InN0MSI+JiN4YTsJCQk8cGF0aCBkPSJNNy4zNiAyLjAzTDMuOTUgMCAyLjIxLjk1bDMuNDQgMi4wNCAxLjcyLS45NnptLjcxIDExLjc2bC0xLjcyLS4wMi0uMDIgMS43Mi44MiAyLjQ4IDEuNDItLjEyLjI5LS44NSA1LjI3LTIuOTMuMDMtMi4wOS0xLjc5LS4wMi0uMDIgMS4xLTQuMyAyLjQ1eiIvPiYjeGE7CQkJPHBhdGggZD0iTTcuMTUgMTcuOTdsLTMuNDYgMS45NGgtLjA1bC0xLjY2LS45OSAzLjQ5LTEuOTYgMS42OCAxLjAxeiIvPiYjeGE7CQk8L2c+JiN4YTsJCTxwYXRoIGNsYXNzPSJzdDMiIGQ9Ik0xMC44OC4wOWgtLjA1TDcuMzcgMi4wM2wxLjY4IDEuMDEgMy40OS0xLjk2ek0xMC42MiAyMGgtLjA1bC0zLjQyLTIuMDNoMCAwIDBsMS43Mi0uOTYgMy40NCAyLjA0eiIvPiYjeGE7CQk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNLjMzIDEzLjg5di0yaDEuNzZsLS4wMSAxLjA0IDQuMjUgMi41Ni4wMi0xLjcyLjg2LjAxLS4wNiA0LjE4LTEuNjgtMXoiLz4mI3hhOwk8L2c+JiN4YTsJPGNpcmNsZSBjbGFzcz0ic3QyIiBjeD0iMTMuMzgiIGN5PSIxMC4wNCIgcj0iMS4xNCIvPiYjeGE7CTxjaXJjbGUgY2xhc3M9InN0MiIgY3g9IjEuMTQiIGN5PSI5Ljg4IiByPSIxLjE0Ii8+JiN4YTsJPGNpcmNsZSBjbGFzcz0ic3QyIiBjeD0iNy4zMiIgY3k9IjcuOTkiIHI9IjEuMTQiLz4mI3hhOwk8Y2lyY2xlIGNsYXNzPSJzdDIiIGN4PSI3LjIzIiBjeT0iMTIiIHI9IjEuMTQiLz4mI3hhOzwvc3ZnPg==;",
+"w":30,
+"h":40,
+"py_class":"gcp.analytics.Dataflow",
+"py_icon":"gcp/analytics/dataflow.png",
+"verify":false
+},
+"generic":{
+"service":"Pipelines (e.g. Airflow, Spark)",
+"drawio_palette":"Network2",
+"drawio_title":"Data Management",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.data_management;network2IconW=0.8252;network2IconH=0.9989;",
+"w":41.260000000000005,
+"h":49.945,
+"py_class":"onprem.workflow.Airflow",
+"py_icon":"onprem/workflow/airflow.png",
+"verify":false
+}
+},
+"data_catalog":{
+"description":"Data catalogue and governance",
+"aws":{
+"service":"AWS Lake Formation / Amazon DataZone (v)",
+"drawio_palette":"AWS4",
+"drawio_title":"Lake Formation",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lake_formation;",
+"w":78,
+"h":78,
+"py_class":"aws.analytics.LakeFormation",
+"py_icon":"aws/analytics/lake-formation.png",
+"verify":true
+},
+"azure":{
+"service":"Microsoft Purview",
+"drawio_palette":"Azure2",
+"drawio_title":"Purview Accounts",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Purview_Accounts.svg;",
+"w":68,
+"h":42,
+"py_class":"azure.databases.AzurePurviewAccounts",
+"py_icon":"azure/databases/azure-purview-accounts.png",
+"verify":false
+},
+"gcp":{
+"service":"Dataplex Universal Catalog (v)",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Data Catalog",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjM3Ni4yNzQ4ODc3NTcyNjMyIiBoZWlnaHQ9IjMzOS42NzM1NDQyMTc3NjM4MyIgdmlld0JveD0iMC4xMTQwMDAwMDAwNTk2MDQ2NCAtMC4wOTAwMDAwMDM1NzYyNzg2OSA5OS41NTU5OTk3NTU4NTkzOCA4OS44NzE5OTQwMTg1NTQ2OSI+JiN4YTs8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojNDI4NWY0O30mI3hhOwkuc3Qxe2ZpbGw6I2FlY2JmYTt9JiN4YTs8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik03Ny41MjMgNDMuMzk3bDEyLjg0NCA3LjU3MnYxNC43NjdsLTEyLjg0NCA2LjY4ek01MC4zMTItLjA5bDEyLjg0NCA3LjU3MnYxNC43NjdsLTEyLjg0NCA2LjY4ek0yMy4xIDQzLjM5N2wxMi44NDQgNy41NzJ2MTQuNzY3TDIzLjEgNzIuNDE3em02OS40Ny0uNTExbDcuMS0xMS4xNjktMTIuNjY2LTIxLjU5NEg3MC42NDR2OS41aDEwLjkxOWw2Ljk3NyAxMS44OTUtNC4yNTYgNi42OTR6bS03Ni45NzktNC42TDExLjMgMzEuNDg1bDcuMjY0LTExLjg2MWg5Ljk3OWwuMDk5LTkuNUgxMy4yNDFMLjExNCAzMS41NjFsMS41NzYgMi40OTggNS41MTUgOC43Mzl6bTEzLjY2MiAzOS40NDlsNy42MDMgMTIuMDQ3aDI1LjkwMmw3LjczMy0xMi4xNjQtOC4xNDMtNC44OTktNC44MDggNy41NjRINDIuMDk1bC00Ljc0LTcuNTExeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik03Ny41MjMgNDMuMzk3bC0xMi44NDQgNy41NzJ2MTQuNzY3bDEyLjg0NCA2LjY4ek01MC4zMTItLjA5TDM3LjQ2OCA3LjQ4MnYxNC43NjdsMTIuODQ0IDYuNjh6TTIzLjEgNDMuMzk3bC0xMi44NDQgNy41NzJ2MTQuNzY3bDEyLjg0NCA2LjY4eiIvPiYjeGE7PC9zdmc+;",
+"w":40,
+"h":36,
+"py_class":"gcp.analytics.DataCatalog",
+"py_icon":"gcp/analytics/data-catalog.png",
+"verify":true
+},
+"generic":{
+"service":"Data catalogue (e.g. OpenMetadata)",
+"drawio_palette":"Network2",
+"drawio_title":"Data Management",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.data_management;network2IconW=0.8252;network2IconH=0.9989;",
+"w":41.260000000000005,
+"h":49.945,
+"py_class":"generic.storage.Storage",
+"py_icon":"generic/storage/storage.png",
+"verify":false
+}
+},
+"logging":{
+"description":"Centralised logging",
+"aws":{
+"service":"Amazon CloudWatch Logs",
+"drawio_palette":"AWS4",
+"drawio_title":"CloudWatch",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch_2;",
+"w":78,
+"h":78,
+"py_class":"aws.management.CloudwatchLogs",
+"py_icon":"aws/management/cloudwatch-logs.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Monitor Log Analytics",
+"drawio_palette":"Azure2",
+"drawio_title":"Log Analytics Workspaces",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/analytics/Log_Analytics_Workspaces.svg;",
+"w":64,
+"h":64,
+"py_class":"azure.analytics.LogAnalyticsWorkspaces",
+"py_icon":"azure/analytics/log-analytics-workspaces.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud Logging",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Cloud Logging",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE5IiB2aWV3Qm94PSIwIDAgMjAgMTkiPiYjeGE7CTxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOwkuc3Qye2ZpbGw6I2FlY2JmYTt9JiN4YTsJPC9zdHlsZT4mI3hhOwk8ZyBjbGFzcz0ic3QwIj4mI3hhOwkJPHBhdGggZD0iTTQgOWg0djJINHptLTIgN2g2djJIMnoiLz4mI3hhOwkJPHBhdGggZD0iTTQgNEgydjEyaDJ6Ii8+JiN4YTsJPC9nPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yMCAxSDd2NGgxM3ptMCA3SDd2NGgxM3ptMCA3SDd2NGgxM3oiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNiAwSDB2Nmg2eiIvPiYjeGE7PC9zdmc+;",
+"w":40,
+"h":38,
+"py_class":"gcp.operations.Logging",
+"py_icon":"gcp/operations/logging.png",
+"verify":false
+},
+"generic":{
+"service":"Logging (e.g. OpenSearch, Loki)",
+"drawio_palette":"Network2",
+"drawio_title":"Monitor",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.monitor;network2IconYOffset=-0.009;network2IconW=1;network2IconH=0.742;",
+"w":50,
+"h":37.1,
+"py_class":"onprem.logging.Loki",
+"py_icon":"onprem/logging/loki.png",
+"verify":false
+}
+},
+"monitoring":{
+"description":"Metrics and monitoring",
+"aws":{
+"service":"Amazon CloudWatch",
+"drawio_palette":"AWS4",
+"drawio_title":"CloudWatch",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch_2;",
+"w":78,
+"h":78,
+"py_class":"aws.management.Cloudwatch",
+"py_icon":"aws/management/cloudwatch.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Monitor",
+"drawio_palette":"Azure2",
+"drawio_title":"Monitor",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/management_governance/Monitor.svg;",
+"w":64,
+"h":64,
+"py_class":"azure.monitor.Monitor",
+"py_icon":"azure/monitor/monitor.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud Monitoring",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Cloud Monitoring",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjEzLjUyOTk5OTczMjk3MTE5MSIgdmlld0JveD0iLTIuOTMyMDk3ODk3ODEyMDE0ZS05IC01LjI1ODAxNTA0MTgzNzk1NmUtMTUgMjAgMTMuNTI5OTk5NzMyOTcxMTkxIj4mI3hhOwk8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojNDI4NWY0O30mI3hhOwkuc3Qxe2ZpbGw6IzY2OWRmNjt9JiN4YTsJPC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNOC44MyAxMC41OGgyLjMzdjIuNjRIOC44M3oiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTYuNDggOC42MWEuNTYuNTYgMCAwIDEtLjQtLjE3TDEyIDQuMjEgOS4yNiA3LjFhLjU3LjU3IDAgMCAxLS43Ni4wNUw2LjQyIDUuNDdsLTIuMiAyLjkyYS41Ni41NiAwIDAgMS0uNDUuMjJIMHYxLjcxYS43NS43NSAwIDAgMCAuNzQuNzVoMTguNTJhLjc1Ljc1IDAgMCAwIC43NC0uNzVWOC42MXoiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMy41IDcuNWwyLjM4LTMuMTZhLjU1LjU1IDAgMCAxIC4zNy0uMjIuNjMuNjMgMCAwIDEgLjQyLjEybDIuMTIgMS43MiAyLjgtMi45NGEuNTQuNTQgMCAwIDEgLjQtLjE3aDBhLjU0LjU0IDAgMCAxIC40LjE3bDQuMzMgNC40OEgyMFYuNzRhLjc0Ljc0IDAgMCAwLS43NC0uNzRILjc0QS43NC43NCAwIDAgMCAwIC43NHY2LjgxeiIvPiYjeGE7CTxyZWN0IGNsYXNzPSJzdDAiIHg9IjYuNjciIHk9IjEyLjkyIiB3aWR0aD0iNi42NyIgaGVpZ2h0PSIuNjEiIHJ4PSIuMyIvPiYjeGE7PC9zdmc+;",
+"w":40,
+"h":28.000000000000004,
+"py_class":"gcp.operations.Monitoring",
+"py_icon":"gcp/operations/monitoring.png",
+"verify":false
+},
+"generic":{
+"service":"Monitoring (e.g. Prometheus, Grafana)",
+"drawio_palette":"Network2",
+"drawio_title":"Monitor",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.monitor;network2IconYOffset=-0.009;network2IconW=1;network2IconH=0.742;",
+"w":50,
+"h":37.1,
+"py_class":"onprem.monitoring.Prometheus",
+"py_icon":"onprem/monitoring/prometheus.png",
+"verify":false
+}
+},
+"analytics_bi":{
+"description":"Dashboards / business intelligence",
+"aws":{
+"service":"Amazon QuickSight / Quick Suite (v)",
+"drawio_palette":"AWS4",
+"drawio_title":"Quick",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.quick_suite;",
+"w":78,
+"h":78,
+"py_class":"aws.analytics.Quicksight",
+"py_icon":"aws/analytics/quicksight.png",
+"verify":true
+},
+"azure":{
+"service":"Power BI (v)",
+"drawio_palette":"Azure2",
+"drawio_title":"Power BI Embedded",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/analytics/Power_BI_Embedded.svg;",
+"w":51,
+"h":68,
+"py_class":"azure.analytics.PowerBiEmbedded",
+"py_icon":"azure/analytics/power-bi-embedded.png",
+"verify":true
+},
+"gcp":{
+"service":"Looker",
+"drawio_palette":"GCP3",
+"drawio_title":"Looker",
+"drawio_style":"sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#000000;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.looker;fillColor=#4285f4",
+"w":36.62,
+"h":50,
+"py_class":"gcp.analytics.Looker",
+"py_icon":"gcp/analytics/looker.png",
+"verify":false
+},
+"generic":{
+"service":"Dashboards (e.g. Grafana, Superset)",
+"drawio_palette":"Network2",
+"drawio_title":"Monitor",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.monitor;network2IconYOffset=-0.009;network2IconW=1;network2IconH=0.742;",
+"w":50,
+"h":37.1,
+"py_class":"onprem.monitoring.Grafana",
+"py_icon":"onprem/monitoring/grafana.png",
+"verify":false
+}
+},
+"kms":{
+"description":"Key management and secrets",
+"aws":{
+"service":"AWS KMS / Secrets Manager",
+"drawio_palette":"AWS4",
+"drawio_title":"Key Management Service",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.key_management_service;",
+"w":78,
+"h":78,
+"py_class":"aws.security.KMS",
+"py_icon":"aws/security/key-management-service.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Key Vault",
+"drawio_palette":"Azure2",
+"drawio_title":"Key Vaults",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/security/Key_Vaults.svg;",
+"w":68,
+"h":68,
+"py_class":"azure.security.KeyVaults",
+"py_icon":"azure/security/key-vaults.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud KMS / Secret Manager",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Key Management Service",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjMxMC43NzU2MDY1NDM4NjAyNSIgaGVpZ2h0PSIzNzcuOTUzMDI4ODM1NTI1NDYiIHZpZXdCb3g9Ii0wLjE0MDAwMDAwMDU5NjA0NjQ1IC0wLjQ2NzAwMDAwNzYyOTM5NDUzIDgyLjIyNTk5NzkyNDgwNDY5IDEwMC4wMDAwMDc2MjkzOTQ1MyI+JiN4YTs8c3R5bGUgdHlwZT0idGV4dC9jc3MiPiYjeGE7CS5zdDB7ZmlsbDojNDI4NWY0O30mI3hhOwkuc3Qxe2ZpbGw6IzY2OWRmNjt9JiN4YTsJLnN0MntmaWxsOiNmZmY7fSYjeGE7PC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDAuOTczLS40NjdsNDEuMTEzIDE3LjQ5M3YyOS42NTRjMCAyNy40MTgtMjQuNjA4IDUwLjgzNi00MS4xMTMgNTIuODUzeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik00MC45NzMtLjQ2N0wtLjE0IDE3LjAyNXYyOS42NTRjMCAyNy40MTggMjQuNjA4IDUwLjgzNiA0MS4xMTMgNTIuODUzeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik00MS4yNTMgMTYuNjA1Yy05LjU4NCAwLTE3LjQ0NSA3Ljg2Mi0xNy40NDUgMTcuNDQ1IDAgOC4wODQgNS41OTQgMTQuOTQyIDEzLjA5NiAxNi44OTF2OS40ODhoLTkuODY5djguNzAxaDkuODY5djUuMzc3aC02LjMxNXY4LjcwMWg2LjMxNXYyLjE5N2g4LjcwMVY1MC45NDFDNTMuMTA2IDQ4Ljk5MiA1OC43IDQyLjEzNCA1OC43IDM0LjA1YzAtOS41ODQtNy44NjMtMTcuNDQ1LTE3LjQ0Ny0xNy40NDV6bTAgOC42OTlBOC42OCA4LjY4IDAgMCAxIDUwIDM0LjA1YTguNjggOC42OCAwIDAgMS04Ljc0OCA4Ljc0NiA4LjY4IDguNjggMCAwIDEtOC43NDYtOC43NDYgOC42OCA4LjY4IDAgMCAxIDguNzQ2LTguNzQ2eiIvPiYjeGE7PC9zdmc+;",
+"w":32,
+"h":40,
+"py_class":"gcp.security.KeyManagementService",
+"py_icon":"gcp/security/key-management-service.png",
+"verify":false
+},
+"generic":{
+"service":"Key management / HSM (e.g. Vault)",
+"drawio_palette":"Network2",
+"drawio_title":"Encryption",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.encryption;network2IconXOffset=0.0006;network2IconYOffset=0.0881;network2IconW=1.0001;network2IconH=0.7019;",
+"w":50.005,
+"h":35.095,
+"py_class":"onprem.security.Vault",
+"py_icon":"onprem/security/vault.png",
+"verify":false
+}
+},
+"vpc":{
+"description":"Virtual network",
+"aws":{
+"service":"Amazon VPC",
+"drawio_palette":"AWS4",
+"drawio_title":"VPC",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.vpc;",
+"w":78,
+"h":78,
+"py_class":"aws.network.VPC",
+"py_icon":"aws/network/vpc.png",
+"verify":false
+},
+"azure":{
+"service":"Azure Virtual Network",
+"drawio_palette":"Azure2",
+"drawio_title":"Virtual Networks",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/networking/Virtual_Networks.svg;",
+"w":67,
+"h":40,
+"py_class":"azure.network.VirtualNetworks",
+"py_icon":"azure/network/virtual-networks.png",
+"verify":false
+},
+"gcp":{
+"service":"VPC network",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Virtual Private Cloud",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiPiYjeGE7CTxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+JiN4YTsJLnN0MHtmaWxsOiM0Mjg1ZjQ7fSYjeGE7CS5zdDF7ZmlsbDojNjY5ZGY2O30mI3hhOwkuc3Qye2ZpbGw6I2FlY2JmYTt9JiN4YTsJPC9zdHlsZT4mI3hhOwk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTQgMGg2djZoLTZ6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTE3IDBoM3Y2aC0zeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xNCAxNGg2djZoLTZ6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTE3IDE0aDN2NmgtM3oiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMCAwaDZ2NkgweiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zIDBoM3Y2SDN6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MiIgZD0iTTAgMTRoNnY2SDB6Ii8+JiN4YTsJPGcgY2xhc3M9InN0MSI+JiN4YTsJCTxwYXRoIGQ9Ik0zIDE0aDN2Nkgzek02IDJoOHYySDZ6Ii8+JiN4YTsJCTxwYXRoIGQ9Ik02IDE2aDh2Mkg2ek0xNiA2aDJ2OGgtMnpNMiA2aDJ2OEgyeiIvPiYjeGE7CTwvZz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMiA2aDJ2Mkgyem0xNCAwaDJ2MmgtMnpNNiAyaDJ2Mkg2em0wIDE0aDJ2Mkg2eiIvPiYjeGE7PC9zdmc+;",
+"w":40,
+"h":40,
+"py_class":"gcp.network.VirtualPrivateCloud",
+"py_icon":"gcp/network/virtual-private-cloud.png",
+"verify":false
+},
+"generic":{
+"service":"Private network",
+"drawio_palette":"Network2",
+"drawio_title":"Network",
+"drawio_style":"shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.network;network2IconW=1;network2IconH=0.8601;",
+"w":50,
+"h":43.004999999999995,
+"py_class":"generic.network.Router",
+"py_icon":"generic/network/router.png",
+"verify":false
+}
+},
+"interconnect":{
+"description":"Dedicated private link between on-premises and cloud",
+"aws":{
+"service":"AWS Direct Connect",
+"drawio_palette":"AWS4",
+"drawio_title":"Direct Connect",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.direct_connect;",
+"w":78,
+"h":78,
+"py_class":"aws.network.DirectConnect",
+"py_icon":"aws/network/direct-connect.png",
+"verify":false
+},
+"azure":{
+"service":"Azure ExpressRoute",
+"drawio_palette":"Azure2",
+"drawio_title":"ExpressRoute Circuits",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/networking/ExpressRoute_Circuits.svg;",
+"w":70,
+"h":64,
+"py_class":"azure.network.ExpressrouteCircuits",
+"py_icon":"azure/network/expressroute-circuits.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud Interconnect",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Cloud Interconnect",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE4IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHZpZXdCb3g9IjAgMCAyMCAxOCI+JiN4YTsJPHN0eWxlIHR5cGU9InRleHQvY3NzIj4mI3hhOwkuc3Qwe2ZpbGw6IzQyODVmNDt9JiN4YTsJLnN0MXtmaWxsOiM2NjlkZjY7fSYjeGE7CS5zdDJ7ZmlsbDojYWVjYmZhO30mI3hhOwk8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00IDhIMHYyaDR6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MiIgZD0iTTMgNGgxMHYxMEgzeiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMCA4aC00LjY3djJIMjB6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTE1IDJ2MTRINnYyaDExdi0yVjIgMEg2djJ6TTggNGg1djEwSDh6Ii8+JiN4YTs8L3N2Zz4=;fontColor=default;",
+"w":40,
+"h":36,
+"py_class":"gcp.network.DedicatedInterconnect",
+"py_icon":"gcp/network/dedicated-interconnect.png",
+"verify":false
+},
+"generic":{
+"service":"Private circuit / cross-connect",
+"drawio_palette":"Network2",
+"drawio_title":"Router",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.router;network2IconXOffset=0.0001;network2IconYOffset=-0.1142;network2IconW=1;network2IconH=0.5485;",
+"w":50,
+"h":27.425,
+"py_class":"generic.network.Router",
+"py_icon":"generic/network/router.png",
+"verify":false
+}
+},
+"vpn":{
+"description":"Site-to-site VPN",
+"aws":{
+"service":"AWS Site-to-Site VPN",
+"drawio_palette":"AWS4",
+"drawio_title":"Site-to-Site VPN",
+"drawio_style":"sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.site_to_site_vpn;",
+"w":78,
+"h":78,
+"py_class":"aws.network.SiteToSiteVpn",
+"py_icon":"aws/network/site-to-site-vpn.png",
+"verify":false
+},
+"azure":{
+"service":"Azure VPN Gateway",
+"drawio_palette":"Azure2",
+"drawio_title":"Virtual Network Gateways",
+"drawio_style":"image;aspect=fixed;html=1;align=center;fontSize=12;image=img/lib/azure2/networking/Virtual_Network_Gateways.svg;",
+"w":52,
+"h":69,
+"py_class":"azure.network.VirtualNetworkGateways",
+"py_icon":"azure/network/virtual-network-gateways.png",
+"verify":false
+},
+"gcp":{
+"service":"Cloud VPN",
+"drawio_palette":"GCPIcons",
+"drawio_title":"Cloud VPN",
+"drawio_style":"editableCssRules=.*;html=1;shape=image;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjE3Ljk1MDAwMDc2MjkzOTQ1MyIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDE3Ljk1MDAwMDc2MjkzOTQ1MyAyMCI+JiN4YTsJPHN0eWxlIHR5cGU9InRleHQvY3NzIj4mI3hhOwkuc3Qwe2ZpbGw6IzQyODVmNDt9JiN4YTsJLnN0MXtmaWxsOiM2NjlkZjY7fSYjeGE7CTwvc3R5bGU+JiN4YTsJPGcgY2xhc3M9InN0MSI+JiN4YTsJCTxwYXRoIGQ9Ik0xMS43IDkuMjhoNC4xOHYxLjM4SDExLjd6Ii8+JiN4YTsJCTxwYXRoIGQ9Ik0xNC45MiA0LjEyaDEuMzh2MTEuNzFoLTEuMzh6Ii8+JiN4YTsJPC9nPiYjeGE7CTxnIGNsYXNzPSJzdDAiPiYjeGE7CQk8cmVjdCB4PSIxMy4yNyIgeT0iMTUuMzIiIHdpZHRoPSI0LjY4IiBoZWlnaHQ9IjQuNjgiIHJ4PSIuMjgiLz4mI3hhOwkJPHJlY3QgeD0iMTMuMjciIHdpZHRoPSI0LjY4IiBoZWlnaHQ9IjQuNjgiIHJ4PSIuMjgiLz4mI3hhOwk8L2c+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTMuOTUgOS4yOGg0LjI4djEuMzhIMy45NXoiLz4mI3hhOwk8ZyBjbGFzcz0ic3QwIj4mI3hhOwkJPHJlY3QgeT0iNy42MyIgd2lkdGg9IjQuNjgiIGhlaWdodD0iNC42OCIgcng9Ii4yOCIvPiYjeGE7CQk8cGF0aCBkPSJNOS45NyAxMi4xN2EyLjIgMi4yIDAgMSAxIDAtNC40IDIuMiAyLjIgMCAwIDEgMi4yIDIuMiAyLjE5IDIuMTkgMCAwIDEtMi4yIDIuMnptMC0zLjU3YTEuMzggMS4zOCAwIDAgMC0xLjA1IDIuMzNBMS4zOCAxLjM4IDAgMCAwIDExLjMgMTBhMS4zNyAxLjM3IDAgMCAwLTEuMzMtMS40eiIvPiYjeGE7CTwvZz4mI3hhOzwvc3ZnPg==;",
+"w":36,
+"h":40,
+"py_class":"gcp.network.VPN",
+"py_icon":"gcp/network/vpn.png",
+"verify":false
+},
+"generic":{
+"service":"VPN",
+"drawio_palette":"Network2",
+"drawio_title":"Router",
+"drawio_style":"fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#EDEDED;strokeColor=#000000;gradientColor=#5B6163;network2IconShadow=1;network2bgFillColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;network2Icon=mxgraph.networks2.router;network2IconXOffset=0.0001;network2IconYOffset=-0.1142;network2IconW=1;network2IconH=0.5485;",
+"w":50,
+"h":27.425,
+"py_class":"generic.network.VPN",
+"py_icon":"generic/network/vpn.png",
+"verify":false
+}
+}
+}
+}

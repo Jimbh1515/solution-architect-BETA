@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>New opportunity</h1>
+<p class="lede">Describe the opportunity: the agency or GLC, the problem, and anything you already know (users, data, hosting constraints, deadline). The app produces the full proposal package with the recommended architecture drawn on AWS, Azure and Google Cloud.</p>
+<form method="post" class="card" id="f">
+  <label for="brief">Opportunity</label>
+  <textarea id="brief" name="brief" rows="9" maxlength="{{ max_chars }}" required placeholder="e.g. A state agency wants an AI assistant for officers to search permit records and policy documents. About 400 internal users. Records include personal data; the agency prefers data to stay in Malaysia."></textarea>
+  <div class="choices">
+    <button class="btn primary" formaction="/intake" type="submit">Guided intake<small>One question at a time, then draft</small></button>
+    <button class="btn" formaction="/quick" type="submit">Quick draft<small>Draft now, assumptions listed at the top</small></button>
+  </div>
+</form>
+{% if jobs %}
+<h2>Your recent proposals</h2>
+<p class="muted">Kept for a limited time and lost when the server restarts. Download anything you need.</p>
+<ul class="jobs">
+{% for j in jobs %}
+  <li><a href="/jobs/{{ j.id }}">{{ j.title }}</a> <span class="tag {{ j.status }}">{{ j.status }}</span> <span class="muted">{{ j.mode }}</span></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

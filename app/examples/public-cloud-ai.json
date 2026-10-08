@@ -1,0 +1,46 @@
+{
+  "title": "AI assistant on a single public cloud (Option A pattern)",
+  "containers": [
+    {"id": "cloud", "label": "Hyperscaler region (to verify in Malaysia)", "type": "provider_zone"},
+    {"id": "edge", "label": "Edge and access", "type": "subsystem", "parent": "cloud"},
+    {"id": "app", "label": "Application subsystem", "type": "subsystem", "parent": "cloud"},
+    {"id": "runtime", "label": "Managed Kubernetes", "type": "platform", "parent": "app"},
+    {"id": "data", "label": "Data and retrieval subsystem", "type": "subsystem", "parent": "cloud"},
+    {"id": "ops", "label": "Security and operations", "type": "subsystem", "parent": "cloud"},
+    {"id": "agency", "label": "Agency premises", "type": "onprem_site"}
+  ],
+  "components": [
+    {"id": "users", "kind": "users", "label": "Officers and public users", "placement": "external"},
+    {"id": "waf", "kind": "waf", "label": "WAF and DDoS protection", "placement": "cloud", "container": "edge"},
+    {"id": "idp", "kind": "identity", "label": "Identity and SSO", "placement": "cloud", "container": "edge"},
+    {"id": "apigw", "kind": "api_gateway", "label": "API gateway", "placement": "cloud", "container": "edge"},
+    {"id": "k8s", "kind": "k8s", "label": "Cluster", "placement": "cloud", "container": "runtime"},
+    {"id": "fe", "kind": "workload", "label": "Assistant service", "placement": "cloud", "container": "runtime", "tech": "Containerised API"},
+    {"id": "rai", "kind": "responsible_ai", "label": "Content safety", "placement": "cloud", "container": "app"},
+    {"id": "llm", "kind": "managed_llm", "label": "Foundation model", "placement": "cloud", "container": "app"},
+    {"id": "emb", "kind": "batch_job", "label": "Embedding pipeline", "placement": "cloud", "container": "data"},
+    {"id": "lake", "kind": "object_storage", "label": "Document store", "placement": "cloud", "container": "data"},
+    {"id": "vec", "kind": "vector_db", "label": "Vector store", "placement": "cloud", "container": "data"},
+    {"id": "kms", "kind": "kms", "label": "Customer-managed keys", "placement": "cloud", "container": "ops"},
+    {"id": "log", "kind": "logging", "label": "Audit and app logs", "placement": "cloud", "container": "ops"},
+    {"id": "mon", "kind": "monitoring", "label": "Monitoring", "placement": "cloud", "container": "ops"},
+    {"id": "link", "kind": "interconnect", "label": "Private link to agency", "placement": "cloud", "container": "cloud"},
+    {"id": "src", "kind": "internal_source", "label": "Agency records systems", "placement": "onprem", "container": "agency", "tech": "Existing databases and file shares"}
+  ],
+  "flows": [
+    {"id": "f1", "from": "users", "to": "waf", "label": "HTTPS", "type": "request"},
+    {"id": "f2", "from": "waf", "to": "apigw", "label": "", "type": "request"},
+    {"id": "f3", "from": "apigw", "to": "idp", "label": "Token check", "type": "request"},
+    {"id": "f4", "from": "apigw", "to": "fe", "label": "", "type": "request"},
+    {"id": "f5", "from": "fe", "to": "rai", "label": "Screen", "type": "request"},
+    {"id": "f6", "from": "fe", "to": "llm", "label": "Prompt with context", "type": "request"},
+    {"id": "f7", "from": "fe", "to": "vec", "label": "Retrieve", "type": "request"},
+    {"id": "f8", "from": "src", "to": "link", "label": "Sync", "type": "data", "crosses_boundary": true, "data_class": "classified per agency policy"},
+    {"id": "f9", "from": "link", "to": "lake", "label": "", "type": "data"},
+    {"id": "f10", "from": "lake", "to": "emb", "label": "", "type": "data"},
+    {"id": "f11", "from": "emb", "to": "vec", "label": "Embeddings", "type": "data"},
+    {"id": "f12", "from": "fe", "to": "log", "label": "", "type": "telemetry"},
+    {"id": "f13", "from": "fe", "to": "mon", "label": "", "type": "telemetry"},
+    {"id": "f14", "from": "lake", "to": "kms", "label": "Encrypt", "type": "data"}
+  ]
+}

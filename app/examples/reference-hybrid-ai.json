@@ -1,0 +1,44 @@
+{
+  "title": "Hybrid AI assistant (reference architecture)",
+  "containers": [
+    {"id": "env", "label": "Agency environment", "type": "environment"},
+    {"id": "serving", "label": "Serving subsystem", "type": "subsystem", "parent": "env"},
+    {"id": "k8s", "label": "Self-managed Kubernetes cluster (on-premises or sovereign facility)", "type": "platform", "parent": "serving"},
+    {"id": "cloud", "label": "Hyperscaler (provider per option)", "type": "provider_zone", "zone_suffix": "managed model only"}
+  ],
+  "components": [
+    {"id": "users", "kind": "users", "label": "Application users", "placement": "external"},
+    {"id": "iam", "kind": "api_gateway", "label": "Identity provider / API gateway", "placement": "onprem", "container": "env", "tech": "Agency IdP, Keycloak, Kong"},
+    {"id": "chat", "kind": "workload", "label": "Chat interface", "placement": "onprem", "container": "k8s", "tech": "Web chat front end"},
+    {"id": "fe", "kind": "workload", "label": "Frontend server", "placement": "onprem", "container": "k8s", "tech": "Builds contextualised prompts"},
+    {"id": "inf", "kind": "model_serving", "label": "Inference server", "placement": "onprem", "container": "k8s", "tech": "Hugging Face TGI or vLLM, open-weight model"},
+    {"id": "rai", "kind": "responsible_ai", "label": "Responsible AI service", "placement": "onprem", "container": "serving", "tech": "Prompt and response screening"},
+    {"id": "ray", "kind": "batch_job", "label": "Embedding job", "placement": "onprem", "container": "k8s", "tech": "Ray job"},
+    {"id": "chunk", "kind": "batch_job", "label": "Chunking", "placement": "onprem", "container": "k8s", "tech": "Ray Data (shard, chunk)"},
+    {"id": "store", "kind": "object_storage", "label": "Object / file storage", "placement": "onprem", "container": "k8s", "tech": "MinIO, Ceph or NFS"},
+    {"id": "pg", "kind": "vector_db", "label": "Vector database", "placement": "onprem", "container": "serving", "tech": "PostgreSQL with pgvector"},
+    {"id": "llm", "kind": "managed_llm", "label": "Managed model", "placement": "cloud", "container": "cloud"},
+    {"id": "log", "kind": "logging", "label": "Logging", "placement": "onprem", "container": "env"},
+    {"id": "mon", "kind": "monitoring", "label": "Monitoring", "placement": "onprem", "container": "env"},
+    {"id": "ana", "kind": "analytics_bi", "label": "Analytics", "placement": "onprem", "container": "env"},
+    {"id": "ext", "kind": "external_source", "label": "External sources", "placement": "external"},
+    {"id": "int", "kind": "internal_source", "label": "Internal sources", "placement": "external"}
+  ],
+  "flows": [
+    {"id": "e1", "from": "users", "to": "iam", "label": "Request", "type": "request"},
+    {"id": "e2", "from": "iam", "to": "chat", "label": "", "type": "request"},
+    {"id": "e2b", "from": "chat", "to": "fe", "label": "", "type": "request"},
+    {"id": "e3", "from": "fe", "to": "inf", "label": "Contextualised prompt", "type": "request"},
+    {"id": "e5", "from": "fe", "to": "rai", "label": "Screen prompt / response", "type": "request"},
+    {"id": "e6", "from": "fe", "to": "llm", "label": "Hybrid API call", "type": "data", "crosses_boundary": true, "data_class": "approved data only"},
+    {"id": "e8", "from": "ext", "to": "store", "label": "Raw data", "type": "data"},
+    {"id": "e9", "from": "int", "to": "store", "label": "Raw data", "type": "data"},
+    {"id": "e10", "from": "store", "to": "chunk", "label": "Load", "type": "data"},
+    {"id": "e10b", "from": "chunk", "to": "ray", "label": "Chunks", "type": "data"},
+    {"id": "e11", "from": "ray", "to": "pg", "label": "Store embeddings", "type": "data"},
+    {"id": "e12", "from": "fe", "to": "pg", "label": "Retrieve context", "type": "request"},
+    {"id": "e13", "from": "inf", "to": "log", "label": "", "type": "telemetry"},
+    {"id": "e14", "from": "inf", "to": "mon", "label": "", "type": "telemetry"},
+    {"id": "e15", "from": "inf", "to": "ana", "label": "", "type": "telemetry"}
+  ]
+}

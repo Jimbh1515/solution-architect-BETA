@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Guided intake</h1>
+<div class="chat">
+{% for h in history %}
+  <div class="msg {{ 'q' if h.role == 'model' else 'a' }}"><span class="who">{{ 'Architect' if h.role == 'model' else 'You' }}</span>{{ h.text }}</div>
+{% endfor %}
+</div>
+{% if ready %}
+  <section class="card">
+    <p>I have enough to draft the package.</p>
+    <form method="post" action="/intake/{{ iid }}/draft"><button class="btn primary" type="submit">Draft the proposal</button></form>
+  </section>
+{% else %}
+  <form method="post" action="/intake/{{ iid }}/answer" class="card">
+    <label for="answer">Your answer</label>
+    <textarea id="answer" name="answer" rows="4" required autofocus></textarea>
+    <div class="choices">
+      <button class="btn primary" type="submit">Send answer</button>
+      <button class="btn" type="submit" formaction="/intake/{{ iid }}/draft" formnovalidate>Stop asking and draft now</button>
+    </div>
+  </form>
+{% endif %}
+{% endblock %}
