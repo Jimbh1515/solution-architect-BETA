@@ -2,8 +2,7 @@
 import io, json, os, sys, time, zipfile
 from pathlib import Path
 
-os.environ["AUTH_DISABLED"] = "1"
-os.environ.pop("RENDER", None)
+os.environ["AUTH_MODE"] = "none"
 os.environ["WORK_DIR"] = "/tmp/sa-test-jobs"
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -138,3 +137,19 @@ def test_github_signin_flow(monkeypatch):
     assert "New opportunity" in home.text and "jimbh1515" in home.text
     c.get("/logout")
     assert c.get("/", follow_redirects=False).headers["location"] == "/login"
+
+
+def test_open_mode_isolation_and_global_cap(monkeypatch):
+    monkeypatch.setattr(main, "AUTH_DISABLED", True)
+    main._model = FakeModel()
+    a, b = TestClient(main.app), TestClient(main.app)          # two different browsers
+    assert "New opportunity" in a.get("/").text                # no sign-in needed
+    assert a.get("/login", follow_redirects=False).headers["location"] == "/"
+    r = a.post("/quick", data={"brief": "A GLC wants a data platform for asset inspection records across states."}, follow_redirects=False)
+    jid = r.headers["location"].split("/")[-1]
+    assert wait(a, jid)["status"] == "done"
+    assert "Not found" in b.get(f"/jobs/{jid}").text            # browser B cannot open browser A's result
+    assert jid not in b.get("/").text
+    monkeypatch.setattr(main, "MAX_JOBS_TOTAL_PER_DAY", main.jobs_today())   # cap reached for everyone
+    r = b.post("/quick", data={"brief": "Another agency wants a citizen chatbot for licence renewals online."}, follow_redirects=True)
+    assert "daily limit for everyone" in r.text

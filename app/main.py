@@ -28,7 +28,10 @@ log = logging.getLogger("app")
 
 HERE = Path(__file__).parent
 ON_RENDER = os.environ.get("RENDER", "").lower() == "true"
-AUTH_DISABLED = os.environ.get("AUTH_DISABLED") == "1" and not ON_RENDER   # local testing only; never on Render
+# AUTH_MODE: "none" (default, open access for internal testing) or "github" (GitHub sign-in with an allowlist)
+AUTH_MODE = os.environ.get("AUTH_MODE", "none").strip().lower()
+AUTH_DISABLED = AUTH_MODE != "github"
+MAX_JOBS_TOTAL_PER_DAY = int(os.environ.get("MAX_JOBS_TOTAL_PER_DAY", "30"))   # protects Gemini credit when open
 WORK_ROOT = Path(os.environ.get("WORK_DIR", "/tmp/sa-jobs"))
 JOB_TTL_SECONDS = int(os.environ.get("JOB_TTL_HOURS", "12")) * 3600
 MAX_JOBS_PER_DAY = int(os.environ.get("MAX_JOBS_PER_USER_PER_DAY", "20"))
@@ -72,7 +75,10 @@ def user_allowed(login: str) -> bool:
 
 def current_user(request: Request):
     if AUTH_DISABLED:
-        return "local-test"
+        # No sign-in: give each browser its own anonymous id so visitors only see their own proposals.
+        if "anon" not in request.session:
+            request.session["anon"] = "guest-" + secrets.token_hex(4)
+        return request.session["anon"]
     return request.session.get("user")
 
 
@@ -104,9 +110,9 @@ def cleanup():
             INTAKES.pop(iid, None)
 
 
-def jobs_today(user: str) -> int:
+def jobs_today(user: str | None = None) -> int:
     since = time.time() - 86400
-    return sum(1 for j in JOBS.values() if j["owner"] == user and j["created"] > since)
+    return sum(1 for j in JOBS.values() if (user is None or j["owner"] == user) and j["created"] > since)
 
 
 def own_job(job_id: str, user: str) -> dict:
@@ -124,7 +130,7 @@ def health():
 
 @app.get("/login", response_class=HTMLResponse)
 def login_page(request: Request):
-    if current_user(request):
+    if AUTH_DISABLED or current_user(request):
         return RedirectResponse("/", 303)
     configured = bool(os.environ.get("GITHUB_CLIENT_ID") and os.environ.get("GITHUB_CLIENT_SECRET"))
     return page(request, "login.html", configured=configured)
@@ -132,11 +138,15 @@ def login_page(request: Request):
 
 @app.get("/login/github")
 async def login_github(request: Request):
+    if AUTH_DISABLED:
+        return RedirectResponse("/", 303)
     return await oauth.github.authorize_redirect(request, redirect_uri(request))
 
 
 @app.get("/auth/callback", name="auth_callback")
 async def auth_callback(request: Request):
+    if AUTH_DISABLED:
+        return RedirectResponse("/", 303)
     try:
         token = await oauth.github.authorize_access_token(request)
         resp = await oauth.github.get("user", token=token)
@@ -157,7 +167,7 @@ async def auth_callback(request: Request):
 @app.get("/logout")
 def logout(request: Request):
     request.session.clear()
-    return RedirectResponse("/login", 303)
+    return RedirectResponse("/" if AUTH_DISABLED else "/login", 303)
 
 
 # ------------------------------------------------------------------ routes: app
@@ -175,6 +185,8 @@ def _start_job(user: str, brief: str, mode: str) -> str:
             raise HTTPException(429, "You already have a proposal being generated. Wait for it to finish.")
         if jobs_today(user) >= MAX_JOBS_PER_DAY:
             raise HTTPException(429, "Daily limit reached. Try again tomorrow or ask the administrator to raise it.")
+        if jobs_today() >= MAX_JOBS_TOTAL_PER_DAY:
+            raise HTTPException(429, "The app's daily limit for everyone has been reached. Try again tomorrow or raise MAX_JOBS_TOTAL_PER_DAY in Render.")
         jid = uuid.uuid4().hex
         d = WORK_ROOT / jid
         JOBS[jid] = {"id": jid, "owner": user, "mode": mode, "brief": brief, "status": "running", "log": ["Queued"],

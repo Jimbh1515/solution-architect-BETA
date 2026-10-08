@@ -9,9 +9,9 @@
 <body>
 <header class="top">
   <a class="brand" href="/">Solutions Architect <span>multi-cloud pre-sales</span></a>
-  {% if user %}<nav><span class="who">{{ user }}</span><a href="/logout">Sign out</a></nav>{% endif %}
+  {% if user and not auth_disabled %}<nav><span class="who">{{ user }}</span><a href="/logout">Sign out</a></nav>{% endif %}
 </header>
-{% if auth_disabled %}<div class="banner warn">Local test mode: sign-in is disabled. This mode is refused automatically on Render.</div>{% endif %}
+{% if auth_disabled %}<div class="banner warn">Internal testing build: no sign-in. Anyone with this link can use it. Do not share the link outside the team.</div>{% endif %}
 <main>{% block content %}{% endblock %}</main>
 <footer>Opportunity details are sent to Google's Gemini API. Do not enter classified or official-secret information. Every output must be checked before use.</footer>
 </body>

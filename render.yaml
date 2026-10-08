@@ -8,12 +8,11 @@ services:
     envVars:
       - key: GEMINI_API_KEY
         sync: false        # Render asks for the value when you create the service
-      - key: GITHUB_CLIENT_ID
-        sync: false        # from your GitHub OAuth app
-      - key: GITHUB_CLIENT_SECRET
-        sync: false
-      - key: ALLOWED_GITHUB_USERS
-        sync: false        # comma-separated GitHub usernames, e.g. Jimbh1515,colleague-username
+      - key: AUTH_MODE
+        value: none        # internal testing: no sign-in. Change to "github" and add GITHUB_CLIENT_ID,
+                           # GITHUB_CLIENT_SECRET and ALLOWED_GITHUB_USERS to require GitHub sign-in.
+      - key: MAX_JOBS_TOTAL_PER_DAY
+        value: "30"        # cap across all visitors, protects your Gemini credit
       - key: SESSION_SECRET
         generateValue: true
       - key: GEMINI_MODEL
