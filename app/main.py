@@ -1,4 +1,4 @@
-"""Solutions Architect web app: Google sign-in, guided intake, quick draft, multi-cloud diagrams."""
+"""Solutions Architect web app: GitHub sign-in, guided intake, quick draft, multi-cloud diagrams."""
 import io
 import logging
 import os
@@ -14,7 +14,7 @@ from pathlib import Path
 
 import markdown as md_lib
 import nh3
-from authlib.integrations.starlette_client import OAuth, OAuthError
+from authlib.integrations.starlette_client import OAuth
 from fastapi import FastAPI, Form, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
@@ -33,8 +33,7 @@ WORK_ROOT = Path(os.environ.get("WORK_DIR", "/tmp/sa-jobs"))
 JOB_TTL_SECONDS = int(os.environ.get("JOB_TTL_HOURS", "12")) * 3600
 MAX_JOBS_PER_DAY = int(os.environ.get("MAX_JOBS_PER_USER_PER_DAY", "20"))
 MAX_INPUT_CHARS = 20000
-ALLOWED_EMAILS = {e.strip().lower() for e in os.environ.get("ALLOWED_EMAILS", "").split(",") if e.strip()}
-ALLOWED_DOMAINS = {d.strip().lower().lstrip("@") for d in os.environ.get("ALLOWED_DOMAINS", "").split(",") if d.strip()}
+ALLOWED_USERS = {u.strip().lower().lstrip("@") for u in os.environ.get("ALLOWED_GITHUB_USERS", "").split(",") if u.strip()}
 
 app = FastAPI(title="Solutions Architect", docs_url=None, redoc_url=None, openapi_url=None)
 app.add_middleware(SessionMiddleware, secret_key=os.environ.get("SESSION_SECRET") or secrets.token_urlsafe(32),
@@ -43,9 +42,12 @@ app.mount("/static", StaticFiles(directory=HERE / "static"), name="static")
 templates = Jinja2Templates(directory=HERE / "templates")
 
 oauth = OAuth()
-oauth.register(name="google", server_metadata_url="https://accounts.google.com/.well-known/openid-configuration",
-               client_id=os.environ.get("GOOGLE_CLIENT_ID"), client_secret=os.environ.get("GOOGLE_CLIENT_SECRET"),
-               client_kwargs={"scope": "openid email profile"})
+oauth.register(name="github",
+               client_id=os.environ.get("GITHUB_CLIENT_ID"), client_secret=os.environ.get("GITHUB_CLIENT_SECRET"),
+               authorize_url="https://github.com/login/oauth/authorize",
+               access_token_url="https://github.com/login/oauth/access_token",
+               api_base_url="https://api.github.com/",
+               client_kwargs={"scope": "read:user"})   # read-only profile; no repository access
 
 _model = None
 _model_lock = threading.Lock()
@@ -64,14 +66,13 @@ def get_model():
 
 
 # ------------------------------------------------------------------ auth helpers
-def email_allowed(email: str) -> bool:
-    email = (email or "").lower()
-    return email in ALLOWED_EMAILS or (email.split("@")[-1] in ALLOWED_DOMAINS if "@" in email else False)
+def user_allowed(login: str) -> bool:
+    return bool(login) and login.lower() in ALLOWED_USERS
 
 
 def current_user(request: Request):
     if AUTH_DISABLED:
-        return "local-test@example.com"
+        return "local-test"
     return request.session.get("user")
 
 
@@ -125,30 +126,31 @@ def health():
 def login_page(request: Request):
     if current_user(request):
         return RedirectResponse("/", 303)
-    configured = bool(os.environ.get("GOOGLE_CLIENT_ID") and os.environ.get("GOOGLE_CLIENT_SECRET"))
+    configured = bool(os.environ.get("GITHUB_CLIENT_ID") and os.environ.get("GITHUB_CLIENT_SECRET"))
     return page(request, "login.html", configured=configured)
 
 
-@app.get("/login/google")
-async def login_google(request: Request):
-    return await oauth.google.authorize_redirect(request, redirect_uri(request), prompt="select_account")
+@app.get("/login/github")
+async def login_github(request: Request):
+    return await oauth.github.authorize_redirect(request, redirect_uri(request))
 
 
 @app.get("/auth/callback", name="auth_callback")
 async def auth_callback(request: Request):
     try:
-        token = await oauth.google.authorize_access_token(request)
-    except OAuthError as e:
-        log.warning("OAuth error: %s", e)
-        return page(request, "message.html", title="Sign-in failed", message="Google sign-in did not complete. Please try again.")
-    info = token.get("userinfo") or {}
-    email = (info.get("email") or "").lower()
-    if not info.get("email_verified") or not email_allowed(email):
-        log.info("Denied sign-in for %s", email)
+        token = await oauth.github.authorize_access_token(request)
+        resp = await oauth.github.get("user", token=token)
+        resp.raise_for_status()
+        login = (resp.json().get("login") or "").lower()
+    except Exception as e:  # OAuthError, network or API errors
+        log.warning("GitHub sign-in error: %s", e)
+        return page(request, "message.html", title="Sign-in failed", message="GitHub sign-in did not complete. Please try again.")
+    if not user_allowed(login):
+        log.info("Denied sign-in for GitHub user %s", login)
         return page(request, "message.html", title="Access not granted",
-                    message=f"{email or 'This account'} is not on the list of approved users. Ask the administrator to add it.")
+                    message=f"GitHub user '{login or 'unknown'}' is not on the list of approved users. Ask the administrator to add it.")
     request.session.clear()
-    request.session["user"] = email
+    request.session["user"] = login
     return RedirectResponse("/", 303)
 
 

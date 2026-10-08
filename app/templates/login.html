@@ -2,11 +2,11 @@
 {% block content %}
 <section class="card narrow">
   <h1>Sign in</h1>
-  <p>Use your approved Google account.</p>
+  <p>Use your approved GitHub account.</p>
   {% if configured %}
-    <a class="btn primary" href="/login/google">Sign in with Google</a>
+    <a class="btn primary" href="/login/github">Sign in with GitHub</a>
   {% else %}
-    <p class="error">Google sign-in is not configured yet. Set <code>GOOGLE_CLIENT_ID</code> and <code>GOOGLE_CLIENT_SECRET</code> in the Render environment settings.</p>
+    <p class="error">GitHub sign-in is not configured yet. Set <code>GITHUB_CLIENT_ID</code> and <code>GITHUB_CLIENT_SECRET</code> in the Render environment settings.</p>
   {% endif %}
 </section>
 {% endblock %}

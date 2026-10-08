@@ -94,10 +94,47 @@ def test_full_flow():
 
 
 def test_allowlist():
-    main.ALLOWED_EMAILS.clear(); main.ALLOWED_DOMAINS.clear()
-    main.ALLOWED_EMAILS.add("me@gmail.com"); main.ALLOWED_DOMAINS.add("gamuda.com.my")
-    assert main.email_allowed("ME@gmail.com")
-    assert main.email_allowed("x@gamuda.com.my")
-    assert not main.email_allowed("x@evil-gamuda.com.my")
-    assert not main.email_allowed("x@gmail.com")
-    assert not main.email_allowed("")
+    main.ALLOWED_USERS.clear(); main.ALLOWED_USERS.update({"jimbh1515", "colleague"})
+    assert main.user_allowed("Jimbh1515")      # GitHub usernames are case-insensitive
+    assert main.user_allowed("colleague")
+    assert not main.user_allowed("jimbh15150")
+    assert not main.user_allowed("")
+
+
+def test_github_signin_flow(monkeypatch):
+    import urllib.parse
+    monkeypatch.setattr(main, "AUTH_DISABLED", False)
+    monkeypatch.setenv("GITHUB_CLIENT_ID", "Iv1.test"); monkeypatch.setenv("GITHUB_CLIENT_SECRET", "secret")
+    monkeypatch.setenv("PUBLIC_BASE_URL", "https://sa.onrender.com")
+    main.oauth.github.client_id = "Iv1.test"; main.oauth.github.client_secret = "secret"
+    main.ALLOWED_USERS.clear(); main.ALLOWED_USERS.add("jimbh1515")
+    c = TestClient(main.app, base_url="https://testserver")
+
+    assert c.get("/", follow_redirects=False).headers["location"] == "/login"
+    assert "Sign in with GitHub" in c.get("/login").text
+    r = c.get("/login/github", follow_redirects=False)
+    loc = urllib.parse.urlparse(r.headers["location"]); q = urllib.parse.parse_qs(loc.query)
+    assert loc.netloc == "github.com" and loc.path == "/login/oauth/authorize"
+    assert q["redirect_uri"] == ["https://sa.onrender.com/auth/callback"] and q["scope"] == ["read:user"] and "state" in q
+
+    class Resp:
+        def __init__(self, login): self._l = login
+        def raise_for_status(self): pass
+        def json(self): return {"login": self._l}
+
+    async def token(request): return {"access_token": "t", "token_type": "bearer"}
+    monkeypatch.setattr(main.oauth.github, "authorize_access_token", token)
+
+    async def get_denied(path, token=None): return Resp("Stranger")
+    monkeypatch.setattr(main.oauth.github, "get", get_denied)
+    assert "not on the list" in c.get("/auth/callback?code=x&state=y").text
+    assert c.get("/", follow_redirects=False).headers["location"] == "/login"
+
+    async def get_ok(path, token=None): return Resp("Jimbh1515")
+    monkeypatch.setattr(main.oauth.github, "get", get_ok)
+    r = c.get("/auth/callback?code=x&state=y", follow_redirects=False)
+    assert r.status_code == 303 and r.headers["location"] == "/"
+    home = c.get("/")
+    assert "New opportunity" in home.text and "jimbh1515" in home.text
+    c.get("/logout")
+    assert c.get("/", follow_redirects=False).headers["location"] == "/login"
