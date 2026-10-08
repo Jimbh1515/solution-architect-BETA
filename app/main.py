@@ -222,53 +222,87 @@ def quick(request: Request, brief: str = Form(...)):
 def intake_start(request: Request, brief: str = Form(...)):
     user = require_user(request)
     brief = brief.strip()[:MAX_INPUT_CHARS]
+    if len(brief) < 30:
+        return page(request, "message.html", title="Tell me a little more",
+                    message="Describe the opportunity in at least a sentence or two: the agency or GLC, the problem, and anything you know.")
     iid = uuid.uuid4().hex
-    INTAKES[iid] = {"owner": user, "created": time.time(), "history": [{"role": "user", "text": brief}], "ready": False}
-    return _intake_step(request, iid)
-
-
-def _intake_step(request: Request, iid: str):
-    it = INTAKES[iid]
-    try:
-        nxt = agent.intake_next(get_model(), it["history"])
-    except Exception as e:
-        log.exception("Intake failed")
-        return page(request, "message.html", title="The AI service did not respond", message=str(e)[:500])
-    asked = sum(1 for h in it["history"] if h["role"] == "model")
-    if nxt["ready"] or not nxt["question"] or asked >= 8:
-        it["ready"] = True
-    else:
-        it["history"].append({"role": "model", "text": nxt["question"]})
+    INTAKES[iid] = {"owner": user, "created": time.time(), "history": [{"role": "user", "text": brief}],
+                    "ready": False, "pending": True, "error": None}
+    # Post/redirect/get: the next page is a plain GET, so refresh, Back or a server wake-up reload is always safe.
     return RedirectResponse(f"/intake/{iid}", 303)
+
+
+def _own_intake(iid: str, user: str) -> dict:
+    it = INTAKES.get(iid)
+    if not it or it["owner"] != user:
+        raise HTTPException(404, "This intake has expired or the server restarted (the free plan sleeps after 15 minutes idle). Please start again.")
+    return it
+
+
+def _advance_intake(it: dict) -> None:
+    """Ask the model for the next question if one is owed. Safe to call repeatedly."""
+    if not it.get("pending") or it["ready"]:
+        return
+    with it.setdefault("_lock", threading.Lock()):
+        if not it.get("pending"):
+            return
+        try:
+            nxt = agent.intake_next(get_model(), it["history"])
+        except Exception as e:
+            log.exception("Intake failed")
+            it["error"] = str(e)[:500]
+            return
+        it["error"] = None
+        it["pending"] = False
+        asked = sum(1 for h in it["history"] if h["role"] == "model")
+        if nxt["ready"] or not nxt["question"] or asked >= 8:
+            it["ready"] = True
+        else:
+            it["history"].append({"role": "model", "text": nxt["question"]})
 
 
 @app.get("/intake/{iid}", response_class=HTMLResponse)
 def intake_view(request: Request, iid: str):
     user = require_user(request)
-    it = INTAKES.get(iid)
-    if not it or it["owner"] != user:
-        raise HTTPException(404, "Intake not found or expired.")
-    return page(request, "intake.html", iid=iid, history=it["history"], ready=it["ready"])
+    it = _own_intake(iid, user)
+    _advance_intake(it)
+    return page(request, "intake.html", iid=iid, history=it["history"], ready=it["ready"], error=it.get("error"))
 
 
 @app.post("/intake/{iid}/answer")
 def intake_answer(request: Request, iid: str, answer: str = Form(...)):
     user = require_user(request)
-    it = INTAKES.get(iid)
-    if not it or it["owner"] != user:
-        raise HTTPException(404, "Intake not found or expired.")
-    it["history"].append({"role": "user", "text": answer.strip()[:MAX_INPUT_CHARS]})
-    return _intake_step(request, iid)
+    it = _own_intake(iid, user)
+    if not it.get("pending"):          # ignore a double submit while the next question is being prepared
+        it["history"].append({"role": "user", "text": answer.strip()[:MAX_INPUT_CHARS]})
+        it["pending"] = True
+    return RedirectResponse(f"/intake/{iid}", 303)
+
+
+# A plain visit to a form-only address (Back button, refresh, or Render's wake-up reload) goes somewhere sensible.
+@app.get("/intake", response_class=HTMLResponse)
+@app.get("/quick", response_class=HTMLResponse)
+def form_only_get(request: Request):
+    require_user(request)
+    return page(request, "message.html", title="Please submit again",
+                message="That page only works when the form is submitted. If the app was waking up, your text may not have arrived. Go back to the start and submit it again.")
+
+
+@app.get("/intake/{iid}/answer")
+@app.get("/intake/{iid}/draft")
+def intake_form_get(iid: str):
+    return RedirectResponse(f"/intake/{iid}", 303)
 
 
 @app.post("/intake/{iid}/draft")
 def intake_draft(request: Request, iid: str):
     user = require_user(request)
-    it = INTAKES.get(iid)
-    if not it or it["owner"] != user:
-        raise HTTPException(404, "Intake not found or expired.")
+    it = _own_intake(iid, user)
+    if it.get("job"):                  # double submit: go to the job already started
+        return RedirectResponse(f"/jobs/{it['job']}", 303)
     transcript = "\n\n".join(("Architect asked: " if h["role"] == "model" else "User: ") + h["text"] for h in it["history"])
     jid = _start_job(user, transcript, "Guided intake")
+    it["job"] = jid
     return RedirectResponse(f"/jobs/{jid}", 303)
 
 

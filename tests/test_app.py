@@ -153,3 +153,44 @@ def test_open_mode_isolation_and_global_cap(monkeypatch):
     monkeypatch.setattr(main, "MAX_JOBS_TOTAL_PER_DAY", main.jobs_today())   # cap reached for everyone
     r = b.post("/quick", data={"brief": "Another agency wants a citizen chatbot for licence renewals online."}, follow_redirects=True)
     assert "daily limit for everyone" in r.text
+
+
+def test_intake_survives_reloads_and_failures(monkeypatch):
+    monkeypatch.setattr(main, "AUTH_DISABLED", True)
+    fake = FakeModel(); main._model = fake
+    c = TestClient(main.app)
+
+    # the screenshot case: a plain visit to /intake or /quick must not be a 405
+    for path in ("/intake", "/quick"):
+        r = c.get(path)
+        assert r.status_code == 200 and "Please submit again" in r.text
+
+    r = c.post("/intake", data={"brief": "State agency wants an AI assistant for permit records."}, follow_redirects=False)
+    assert r.status_code == 303 and r.headers["location"].startswith("/intake/")
+    iid = r.headers["location"].split("/")[-1]
+    page1 = c.get(f"/intake/{iid}").text
+    assert "Question 1?" in page1
+    calls = len(fake.calls)
+    assert "Question 1?" in c.get(f"/intake/{iid}").text          # refresh: same question,
+    assert len(fake.calls) == calls                                # and no extra AI call
+    assert c.get(f"/intake/{iid}/answer", follow_redirects=False).headers["location"] == f"/intake/{iid}"
+
+    # AI failure shows Try again, then recovers on retry
+    real = fake.generate
+    def boom(*a, **k): raise RuntimeError("503 model overloaded")
+    fake.generate = boom
+    c.post(f"/intake/{iid}/answer", data={"answer": "400 officers"}, follow_redirects=False)
+    r = c.get(f"/intake/{iid}")
+    assert "did not respond" in r.text and "Try again" in r.text and "503 model overloaded" in r.text
+    fake.generate = real
+    assert "Question 2?" in c.get(f"/intake/{iid}").text
+    assert c.get(f"/intake/{iid}").text.count("400 officers") == 1  # answer recorded once
+
+    # double submit of "draft" goes to the same job
+    j1 = c.post(f"/intake/{iid}/draft", follow_redirects=False).headers["location"]
+    j2 = c.post(f"/intake/{iid}/draft", follow_redirects=False).headers["location"]
+    assert j1 == j2
+    assert wait(c, j1.split("/")[-1])["status"] == "done"
+
+    # expired intake gives a clear message
+    assert "expired" in c.get("/intake/doesnotexist").text

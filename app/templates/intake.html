@@ -6,7 +6,15 @@
   <div class="msg {{ 'q' if h.role == 'model' else 'a' }}"><span class="who">{{ 'Architect' if h.role == 'model' else 'You' }}</span>{{ h.text }}</div>
 {% endfor %}
 </div>
-{% if ready %}
+{% if error %}
+  <section class="card">
+    <p class="error">The AI service did not respond: {{ error }}</p>
+    <div class="choices">
+      <a class="btn primary" href="/intake/{{ iid }}">Try again</a>
+      <form method="post" action="/intake/{{ iid }}/draft"><button class="btn" type="submit">Draft with what I have</button></form>
+    </div>
+  </section>
+{% elif ready %}
   <section class="card">
     <p>I have enough to draft the package.</p>
     <form method="post" action="/intake/{{ iid }}/draft"><button class="btn primary" type="submit">Draft the proposal</button></form>
